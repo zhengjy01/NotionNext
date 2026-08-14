@@ -1,6 +1,9 @@
 import { BeiAnGongAn } from '@/components/BeiAnGongAn'
 import DarkModeButton from '@/components/DarkModeButton'
 import { siteConfig } from '@/lib/config'
+import BLOG from '@/blog.config'
+import CONFIG from '../config'
+import SubscribeForm from './SubscribeForm'
 
 const Footer = ({ title }) => {
   const d = new Date()
@@ -11,6 +14,13 @@ const Footer = ({ title }) => {
 
   return (
     <footer className='relative z-10 dark:bg-gray-800 flex-shrink-0 justify-center text-center m-auto w-full leading-6 text-sm p-6 bg-white dark:text-gray-400'>
+      {/* 移动端邮件订阅（桌面端在右侧边栏，此处仅小屏显示） */}
+      {siteConfig('NEXT_FOOTER_SUBSCRIBE', null, CONFIG) &&
+        BLOG.NEXT_PUBLIC_MAILCHIMP_ENABLED === 'true' && (
+          <div className='mb-6 rounded-xl border border-gray-200 bg-white text-left shadow-sm dark:border-gray-700 dark:bg-gray-800 xl:hidden'>
+            <SubscribeForm />
+          </div>
+        )}
       <span>
         <DarkModeButton />
         <i className='fas fa-copyright' /> {`${copyrightDate}`}{' '}
