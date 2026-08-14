@@ -28,5 +28,11 @@ module.exports = {
 
   // 邮件
   MAILCHIMP_LIST_ID: process.env.MAILCHIMP_LIST_ID || null, // 开启mailichimp邮件订阅 客户列表ID ，具体使用方法参阅文档
-  MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY || null // 开启mailichimp邮件订阅 APIkey
+  MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY || null, // 开启mailichimp邮件订阅 APIkey
+  // 构建期计算：是否已配置 Mailchimp（非敏感布尔值，供客户端判断是否显示订阅表单）
+  NEXT_PUBLIC_MAILCHIMP_ENABLED:
+    process.env.NEXT_PUBLIC_MAILCHIMP_ENABLED ||
+    (process.env.MAILCHIMP_LIST_ID && process.env.MAILCHIMP_API_KEY
+      ? 'true'
+      : 'false')
 }

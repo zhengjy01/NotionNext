@@ -20,6 +20,7 @@ const CONFIG = {
   // 右侧组件
   NEXT_RIGHT_BAR: true, // 是否显示右侧栏
   NEXT_RIGHT_LATEST_POSTS: true, // 右侧栏最新文章
+  NEXT_RIGHT_SUBSCRIBE: true, // 右侧栏邮件订阅（配置 MAILCHIMP_LIST_ID / MAILCHIMP_API_KEY 后自动显示）
   NEXT_RIGHT_CATEGORY_LIST: true, // 右侧边栏文章分类列表
   NEXT_RIGHT_TAG_LIST: true, // 右侧边栏标签分类列表
   NEXT_RIGHT_AD: false, // 右侧广告

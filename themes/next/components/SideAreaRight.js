@@ -8,7 +8,9 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import Announcement from './Announcement'
 import LatestPostsGroup from './LatestPostsGroup'
+import SubscribeForm from './SubscribeForm'
 import { siteConfig } from '@/lib/config'
+import BLOG from '@/blog.config'
 const NextRecentComments = dynamic(() => import('./NextRecentComments'))
 
 /**
@@ -49,6 +51,13 @@ const SideAreaRight = (props) => {
             </Card>}
 
             {siteConfig('NEXT_RIGHT_LATEST_POSTS', null, CONFIG) && <Card><LatestPostsGroup latestPosts={latestPosts} /></Card>}
+
+            {siteConfig('NEXT_RIGHT_SUBSCRIBE', null, CONFIG) && BLOG.NEXT_PUBLIC_MAILCHIMP_ENABLED === 'true' && (
+                <Card>
+                    <SubscribeForm />
+                </Card>
+            )}
+
             {slot}
 
             {/* 分类  */}
