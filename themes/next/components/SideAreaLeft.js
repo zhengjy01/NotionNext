@@ -8,6 +8,7 @@ import InfoCard from './InfoCard'
 import Logo from './Logo'
 import { MenuList } from './MenuList'
 import SearchInput from './SearchInput'
+import SocialCard from './SocialCard'
 import Toc from './Toc'
 
 /**
@@ -29,7 +30,8 @@ const SideAreaLeft = props => {
       className={
         (JSON.parse(siteConfig('LAYOUT_SIDEBAR_REVERSE')) ? 'ml-4' : 'mr-4') +
         ' hidden lg:block flex-col w-60 relative z-30'
-      }>
+      }
+    >
       <section className='w-60'>
         {/* 菜单 */}
         <section className='shadow hidden lg:block mb-5 pb-4 bg-white dark:bg-hexo-black-gray hover:shadow-xl duration-200'>
@@ -51,14 +53,16 @@ const SideAreaLeft = props => {
             {showToc && (
               <div
                 key={locale.COMMON.TABLE_OF_CONTENTS}
-                className='dark:text-gray-400 text-gray-600 bg-white dark:bg-hexo-black-gray duration-200'>
+                className='dark:text-gray-400 text-gray-600 bg-white dark:bg-hexo-black-gray duration-200'
+              >
                 <Toc toc={post.toc} />
               </div>
             )}
 
             <div
               key={locale.NAV.ABOUT}
-              className='mb-5 bg-white dark:bg-hexo-black-gray duration-200 py-6'>
+              className='mb-5 bg-white dark:bg-hexo-black-gray duration-200 py-6'
+            >
               <InfoCard {...props} />
               <>
                 <div className='mt-2 text-center dark:text-gray-300 font-light text-xs'>
@@ -78,6 +82,9 @@ const SideAreaLeft = props => {
             </div>
           </Tabs>
         </Card>
+
+        {/* 社交联系方式：独立卡片展示，更醒目 */}
+        <SocialCard {...props} />
 
         <div className='flex justify-center'>
           {slot}

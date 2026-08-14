@@ -5,7 +5,7 @@ import BLOG from '@/blog.config'
 import CONFIG from '../config'
 import SubscribeForm from './SubscribeForm'
 
-const Footer = ({ title }) => {
+const Footer = () => {
   const d = new Date()
   const currentYear = d.getFullYear()
   const since = siteConfig('SINCE')
@@ -50,7 +50,6 @@ const Footer = ({ title }) => {
           <span className='px-1 busuanzi_value_site_uv'> </span>{' '}
         </span>
         <br />
-        <h1>{title}</h1>
       </span>
     </footer>
   )
