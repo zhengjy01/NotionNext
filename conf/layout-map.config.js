@@ -16,6 +16,7 @@ module.exports = {
     '/search': 'LayoutSearch',
     '/search/[keyword]': 'LayoutSearch',
     '/search/[keyword]/page/[page]': 'LayoutSearch',
+    '/portfolio': 'LayoutPortfolio',
     '/404': 'Layout404',
     '/tag': 'LayoutTagIndex',
     '/category': 'LayoutCategoryIndex',

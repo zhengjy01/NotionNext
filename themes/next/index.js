@@ -14,6 +14,7 @@ import BlogPostArchive from './components/BlogPostArchive'
 import BlogPostListPage from './components/BlogPostListPage'
 import BlogPostListScroll from './components/BlogPostListScroll'
 import Card from './components/Card'
+import PortfolioCard from './components/PortfolioCard'
 import FloatDarkModeButton from './components/FloatDarkModeButton'
 import Footer from './components/Footer'
 import JumpToBottomButton from './components/JumpToBottomButton'
@@ -314,6 +315,44 @@ const LayoutArchive = props => {
 }
 
 /**
+ * 作品集
+ * @param {*} props
+ * @returns
+ */
+const LayoutPortfolio = props => {
+  const { portfolio } = props
+  const items = Array.isArray(portfolio) ? portfolio : []
+
+  return (
+    <>
+      <div className='mb-10 bg-white p-3 shadow-md md:p-8 dark:bg-hexo-black-gray min-h-full'>
+        <div className='mb-8 text-center'>
+          <h2 className='mb-2 text-2xl font-bold text-gray-800 dark:text-gray-100'>
+            <i className='fas fa-briefcase mr-3 text-blue-600 dark:text-blue-400' />
+            作品集
+          </h2>
+          <p className='text-sm text-gray-500 dark:text-gray-400'>
+            我的精选作品，点击卡片访问
+          </p>
+        </div>
+        {items.length > 0 ? (
+          <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+            {items.map(item => (
+              <PortfolioCard key={item.id || item.title} item={item} />
+            ))}
+          </div>
+        ) : (
+          <div className='py-20 text-center text-gray-400 dark:text-gray-500'>
+            <i className='fas fa-inbox mb-4 block text-4xl' />
+            暂无作品，请在 Notion 数据库中添加 type=Portfolio 的记录
+          </div>
+        )}
+      </div>
+    </>
+  )
+}
+
+/**
  * 文章详情
  * @param {*} props
  * @returns
@@ -424,6 +463,7 @@ export {
   LayoutBase,
   LayoutCategoryIndex,
   LayoutIndex,
+  LayoutPortfolio,
   LayoutPostList,
   LayoutSearch,
   LayoutSlug,
