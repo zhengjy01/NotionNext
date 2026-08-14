@@ -5,7 +5,9 @@ import BLOG from '@/blog.config'
 
 /**
  * 邮件订阅表单（侧边栏卡片内容）
- * 未配置 Mailchimp 时自动隐藏；配置后自动显示
+ * 需在环境变量显式配置 NEXT_PUBLIC_MAILCHIMP_ENABLED=true 才会显示；
+ * 不要用 MAILCHIMP_LIST_ID/API_KEY 自动推导——它们是服务端专属变量，浏览器端取不到，
+ * 会导致 SSR 有卡片、水合后被移除（"刷新瞬间出现、加载完消失"）。
  * @returns
  */
 const SubscribeForm = () => {
@@ -64,7 +66,8 @@ const SubscribeForm = () => {
         <button
           type='submit'
           disabled={loading || status === 'success'}
-          className='w-full rounded-lg bg-blue-600 py-2 text-sm font-medium text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600'>
+          className='w-full rounded-lg bg-blue-600 py-2 text-sm font-medium text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600'
+        >
           {loading ? '…' : subscribeText}
         </button>
         {status === 'success' && (
@@ -73,7 +76,9 @@ const SubscribeForm = () => {
           </p>
         )}
         {status === 'error' && (
-          <p className='text-xs text-red-500'>{l.ERROR || '订阅失败，请稍后重试'}</p>
+          <p className='text-xs text-red-500'>
+            {l.ERROR || '订阅失败，请稍后重试'}
+          </p>
         )}
       </form>
     </div>

@@ -29,10 +29,11 @@ module.exports = {
   // 邮件
   MAILCHIMP_LIST_ID: process.env.MAILCHIMP_LIST_ID || null, // 开启mailichimp邮件订阅 客户列表ID ，具体使用方法参阅文档
   MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY || null, // 开启mailichimp邮件订阅 APIkey
-  // 构建期计算：是否已配置 Mailchimp（非敏感布尔值，供客户端判断是否显示订阅表单）
+  // 客户端可见开关：是否显示订阅表单（侧边栏/页脚）
+  // 必须显式设置为 true。不要尝试从 MAILCHIMP_LIST_ID/MAILCHIMP_API_KEY 自动推导：
+  // 这两个是服务端专属变量，浏览器端（客户端 bundle）永远取不到，会导致 SSR 渲染出卡片、
+  // 但 React 水合后客户端判断为 false 把卡片移除（表现为"刷新瞬间出现、加载完消失"）。
+  // 配置方式：NEXT_PUBLIC_MAILCHIMP_ENABLED=true （构建期内联，修改后需重新构建/部署）
   NEXT_PUBLIC_MAILCHIMP_ENABLED:
-    process.env.NEXT_PUBLIC_MAILCHIMP_ENABLED ||
-    (process.env.MAILCHIMP_LIST_ID && process.env.MAILCHIMP_API_KEY
-      ? 'true'
-      : 'false')
+    process.env.NEXT_PUBLIC_MAILCHIMP_ENABLED === 'true' ? 'true' : 'false'
 }
