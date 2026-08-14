@@ -53,7 +53,7 @@ const SocialCard = () => {
   }
 
   return (
-    <Card className='mb-4'>
+    <Card className='mb-2 -mt-2'>
       <div className='p-3'>
         <div className='flex items-center gap-2 pb-2 text-sm text-gray-600 dark:text-gray-300'>
           <i className='fas fa-address-book text-blue-600 dark:text-blue-400' />

@@ -49,7 +49,7 @@ const SideAreaLeft = props => {
 
       <div className='sticky top-4 hidden lg:block'>
         <Card>
-          <Tabs>
+          <Tabs className='!mb-1'>
             {showToc && (
               <div
                 key={locale.COMMON.TABLE_OF_CONTENTS}
@@ -61,7 +61,7 @@ const SideAreaLeft = props => {
 
             <div
               key={locale.NAV.ABOUT}
-              className='mb-5 bg-white dark:bg-hexo-black-gray duration-200 py-6'
+              className='mb-2 bg-white dark:bg-hexo-black-gray duration-200 py-5'
             >
               <InfoCard {...props} />
               <>
