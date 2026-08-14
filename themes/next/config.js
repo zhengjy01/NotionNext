@@ -10,8 +10,8 @@ const CONFIG = {
   NEXT_NAV_TYPE: 'normal', // ['fixed','autoCollapse','normal'] 分别是固定屏幕顶部并始终显示、固定屏幕顶部且滚动时隐藏，不固定屏幕顶部
 
   NEXT_POST_LIST_COVER: false, // 文章列表显示封面图
-  NEXT_POST_LIST_PREVIEW: true, // 显示文章预览
-  NEXT_POST_LIST_SUMMARY: false, // 显示用户自定义摘要，有预览时优先只展示预览
+  NEXT_POST_LIST_PREVIEW: false, // 显示文章预览（列表内联渲染正文，默认关闭保持列表简洁）
+  NEXT_POST_LIST_SUMMARY: true, // 显示用户自定义摘要，有预览时优先只展示预览
 
   NEXT_PREVIEW_TAG_COUNT: 16, // 首页最多展示的标签数量，0为不限制
   NEXT_PREVIEW_CATEGORY_COUNT: 16, // 首页最多展示的分类数量，0为不限制
