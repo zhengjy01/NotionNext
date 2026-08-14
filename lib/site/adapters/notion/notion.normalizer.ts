@@ -23,6 +23,7 @@ export function normalizeNotionSite(
     tagOptions: [],
     customNav: [],
     customMenu: [],
+    portfolio: [],
     postCount: 0,
     block: recordMap?.block,
     schema: {},
