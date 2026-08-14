@@ -23,7 +23,7 @@ const SocialCard = () => {
   siteConfig('CONTACT_GITHUB') &&
     push('fab fa-github', 'GitHub', siteConfig('CONTACT_GITHUB'))
   siteConfig('CONTACT_TWITTER') &&
-    push('fab fa-twitter', 'X', siteConfig('CONTACT_TWITTER'))
+    push('', 'X', siteConfig('CONTACT_TWITTER'), { xLogo: true })
   siteConfig('CONTACT_TELEGRAM') &&
     push('fab fa-telegram', 'Telegram', siteConfig('CONTACT_TELEGRAM'))
   siteConfig('CONTACT_LINKEDIN') &&
@@ -73,7 +73,18 @@ const SocialCard = () => {
               className='flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition duration-150'
             >
               <span className='w-5 text-center text-lg leading-none'>
-                {item.emoji ? item.icon : <i className={item.icon} />}
+                {item.xLogo ? (
+                  <svg
+                    viewBox='0 0 24 24'
+                    className='inline-block h-4 w-4 fill-current'
+                    aria-hidden='true'>
+                    <path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z' />
+                  </svg>
+                ) : item.emoji ? (
+                  item.icon
+                ) : (
+                  <i className={item.icon} />
+                )}
               </span>
               <span className='text-sm'>{item.name}</span>
             </a>
