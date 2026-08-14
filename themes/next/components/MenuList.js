@@ -42,6 +42,13 @@ export const MenuList = props => {
       href: '/archive',
       slot: archiveSlot,
       show: siteConfig('NEXT_MENU_ARCHIVE', null, CONFIG)
+    },
+    {
+      id: 5,
+      icon: 'fas fa-briefcase',
+      name: locale.NAV.PORTFOLIO,
+      href: '/portfolio',
+      show: siteConfig('NEXT_MENU_PORTFOLIO', null, CONFIG)
     }
   ]
 

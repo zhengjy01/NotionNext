@@ -31,7 +31,9 @@ export async function getStaticProps({ locale }) {
     publishDay: item.publishDay || '',
     pageCover: item.pageCover || '',
     pageCoverThumbnail: item.pageCoverThumbnail || '',
-    pageIcon: item.pageIcon || ''
+    pageIcon: item.pageIcon || '',
+    tagItems: item.tagItems || [],
+    ext: item.ext || {}
   }))
 
   return {

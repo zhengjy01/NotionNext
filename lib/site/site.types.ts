@@ -86,6 +86,7 @@ export interface SiteData {
 
   customNav: MenuItem[]
   customMenu: MenuItem[]
+  portfolio: BasePage[]
 
   postCount: number
 

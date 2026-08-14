@@ -29,6 +29,7 @@ const CONFIG = {
   NEXT_MENU_CATEGORY: true, // 显示分类
   NEXT_MENU_TAG: true, // 显示标签
   NEXT_MENU_ARCHIVE: true, // 显示归档
+  NEXT_MENU_PORTFOLIO: true, // 显示作品集
   NEXT_MENU_SEARCH: true, // 显示搜索
 
   NEXT_WIDGET_TO_TOP: true, // 是否显示回顶
