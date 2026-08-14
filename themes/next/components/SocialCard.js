@@ -6,7 +6,7 @@ import Card from './Card'
 
 /**
  * 社交联系方式卡片（左侧栏独立展示，图标+名称列表，更醒目）
- * 已移除 RSS 图标；支持 GitHub/X/邮箱/公众号/小红书/即刻等
+ * 已移除 RSS 图标；支持 GitHub/X/邮箱/小红书/即刻等
  * @returns {JSX.Element|null} 未配置任何社交渠道时返回 null
  */
 const SocialCard = () => {
@@ -36,8 +36,6 @@ const SocialCard = () => {
     push('fab fa-bilibili', 'Bilibili', siteConfig('CONTACT_BILIBILI'))
   siteConfig('CONTACT_YOUTUBE') &&
     push('fab fa-youtube', 'YouTube', siteConfig('CONTACT_YOUTUBE'))
-  siteConfig('CONTACT_WEHCHAT_PUBLIC') &&
-    push('fab fa-weixin', '公众号', siteConfig('CONTACT_WEHCHAT_PUBLIC'))
   siteConfig('CONTACT_XIAOHONGSHU') &&
     push('📕', '小红书', siteConfig('CONTACT_XIAOHONGSHU'), { emoji: true })
   siteConfig('CONTACT_JIKE') &&
