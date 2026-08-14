@@ -2,6 +2,7 @@ import BLOG from '@/blog.config'
 import { siteConfig } from '@/lib/config'
 import { fetchGlobalAllData } from '@/lib/db/SiteDataApi'
 import { DynamicLayout } from '@/themes/theme'
+import { normalizeExternalUrl } from '@/lib/utils'
 
 /**
  * 作品集页面：展示 Notion 数据库中 type=Portfolio 且已发布的记录
@@ -22,7 +23,7 @@ export async function getStaticProps({ locale }) {
     id: item.id,
     title: item.title || '未命名作品',
     summary: item.summary || '',
-    url: item.url || '',
+    url: normalizeExternalUrl(item.url || ''),
     slug: item.slug || '',
     category: item.category || '',
     tags: item.tags || [],
