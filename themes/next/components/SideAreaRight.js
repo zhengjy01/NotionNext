@@ -61,6 +61,14 @@ const SideAreaRight = props => {
       )}
 
       <div className='sticky top-0 space-y-4 w-full'>
+        {/* 订阅：固定在侧边栏最顶部 */}
+        {siteConfig('NEXT_RIGHT_SUBSCRIBE', null, CONFIG) &&
+          BLOG.NEXT_PUBLIC_MAILCHIMP_ENABLED === 'true' && (
+            <Card>
+              <SubscribeForm />
+            </Card>
+          )}
+
         {announcementVisible && (
           <Card>
             <Announcement post={notice} />
@@ -137,14 +145,6 @@ const SideAreaRight = props => {
               <div className='px-2 pt-2'>
                 <NextRecentComments />
               </div>
-            </Card>
-          )}
-
-        {/* 订阅：固定在侧边栏最底部（分类/标签之后） */}
-        {siteConfig('NEXT_RIGHT_SUBSCRIBE', null, CONFIG) &&
-          BLOG.NEXT_PUBLIC_MAILCHIMP_ENABLED === 'true' && (
-            <Card>
-              <SubscribeForm />
             </Card>
           )}
       </div>
