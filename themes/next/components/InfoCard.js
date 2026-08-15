@@ -20,9 +20,6 @@ const InfoCard = props => {
             alt={siteConfig('AUTHOR')}
           />
         </div>
-        <div className='text-2xl font-serif dark:text-white py-2 hover:scale-105 transform duration-200'>
-          {siteConfig('AUTHOR')}
-        </div>
         <div className='font-light dark:text-white py-2 hover:scale-105 transform duration-200 text-center'>
           {siteConfig('BIO')}
         </div>

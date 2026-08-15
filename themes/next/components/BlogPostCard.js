@@ -46,7 +46,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
 
           <div
             {...aosProps}
-            className={`flex mt-2 items-center ${showPreview ? 'justify-center' : 'justify-start'} flex-wrap dark:text-gray-500 text-gray-400 `}
+            className={`flex mt-2 items-center ${showPreview ? 'justify-center' : 'justify-start'} flex-wrap dark:text-gray-400 text-gray-500 `}
           >
             <div>
               {post.category && (
@@ -80,7 +80,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
           {(!showPreview || showSummary) && !post.results && (
             <p
               {...aosProps}
-              className='mt-4 line-clamp-2 text-gray-700 dark:text-gray-300 text-sm font-light leading-7'
+              className='mt-4 line-clamp-2 text-gray-700 dark:text-gray-300 text-base font-light leading-7'
             >
               {post.summary}
             </p>

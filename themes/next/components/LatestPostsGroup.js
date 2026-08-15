@@ -47,7 +47,7 @@ const LatestPostsGroup = ({ latestPosts }) => {
               }
             >
               <li className='line-clamp-2'>{post.title}</li>
-              <span className='ml-2 text-[10px] text-gray-400 dark:text-gray-500 whitespace-nowrap'>
+              <span className='ml-2 text-[11px] text-gray-500 dark:text-gray-400 whitespace-nowrap'>
                 {post.date?.start_date}
               </span>
             </div>
