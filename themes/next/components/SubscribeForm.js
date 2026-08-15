@@ -47,7 +47,7 @@ const SubscribeForm = () => {
   return (
     <div className='px-4 py-3'>
       <div className='flex items-center gap-2 pb-2 text-sm text-gray-600 dark:text-gray-300'>
-        <i className='fas fa-paper-plane text-blue-600 dark:text-blue-400' />
+        <i className='fas fa-paper-plane text-brand-600 dark:text-brand-400' />
         {subscribeText}
       </div>
       <p className='pb-3 text-xs leading-relaxed text-gray-500 dark:text-gray-400'>
@@ -61,12 +61,12 @@ const SubscribeForm = () => {
           onChange={e => setEmail(e.target.value)}
           placeholder={l.EMAIL || 'Email'}
           disabled={loading || status === 'success'}
-          className='w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm text-gray-700 outline-none transition focus:border-blue-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200'
+          className='w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm text-gray-700 outline-none transition focus:border-brand-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200'
         />
         <button
           type='submit'
           disabled={loading || status === 'success'}
-          className='w-full rounded-lg bg-blue-600 py-2 text-sm font-medium text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600'
+          className='w-full rounded-lg bg-brand-600 py-2 text-sm font-medium text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-brand-500 dark:hover:bg-brand-600'
         >
           {loading ? '…' : subscribeText}
         </button>

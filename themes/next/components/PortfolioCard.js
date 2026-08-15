@@ -34,7 +34,7 @@ const PortfolioCard = ({ item }) => {
         )}
         {item.category && (
           <div className='mb-3'>
-            <span className='inline-block rounded-full bg-blue-50 px-2.5 py-0.5 text-xs text-blue-600 dark:bg-blue-900/30 dark:text-blue-300'>
+            <span className='inline-block rounded-full bg-brand-50 px-2.5 py-0.5 text-xs text-brand-600 dark:bg-brand-900/30 dark:text-brand-300'>
               {item.category}
             </span>
           </div>
@@ -43,7 +43,8 @@ const PortfolioCard = ({ item }) => {
           {hasUrl ? (
             <SmartLink
               href={item.url}
-              className='inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600'>
+              className='inline-flex items-center gap-1.5 rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600'
+            >
               <i className='fas fa-external-link-alt text-xs' />
               {locale?.COMMON?.VIEW || '访问'}
             </SmartLink>

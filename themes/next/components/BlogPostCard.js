@@ -8,7 +8,6 @@ import Image from 'next/image'
 import SmartLink from '@/components/SmartLink'
 import CONFIG from '../config'
 import Card from './Card'
-import TagItemMini from './TagItemMini'
 
 const BlogPostCard = ({ post, index, showSummary }) => {
   const { locale } = useGlobal()
@@ -37,7 +36,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
             {...aosProps}
             href={post?.href}
             passHref
-            className={`cursor-pointer text-3xl ${showPreview ? 'text-center' : ''} leading-tight text-gray-700 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400`}
+            className={`cursor-pointer font-serif text-3xl ${showPreview ? 'text-center' : ''} leading-tight text-gray-700 dark:text-gray-100 hover:text-brand-500 dark:hover:text-brand-400`}
           >
             {siteConfig('POST_TITLE_ICON') && (
               <NotionIcon icon={post.pageIcon} />
@@ -47,7 +46,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
 
           <div
             {...aosProps}
-            className={`flex mt-2 items-center ${showPreview ? 'justify-center' : 'justify-start'} flex-wrap dark:text-gray-500 text-gray-500 `}
+            className={`flex mt-2 items-center ${showPreview ? 'justify-center' : 'justify-start'} flex-wrap dark:text-gray-500 text-gray-400 `}
           >
             <div>
               {post.category && (
@@ -55,7 +54,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
                   <SmartLink
                     href={`/category/${post.category}`}
                     passHref
-                    className='hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer font-light text-sm transform'
+                    className='hover:text-brand-500 dark:hover:text-brand-400 cursor-pointer font-light text-xs transform'
                   >
                     <i className='mr-1 fas fa-folder' />
                     <span className='menu-link'>{post.category}</span>
@@ -66,7 +65,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
               <SmartLink
                 href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}
                 passHref
-                className='hover:text-blue-500 dark:hover:text-blue-400 font-light cursor-pointer text-sm leading-4 mr-3'
+                className='hover:text-brand-500 dark:hover:text-brand-400 font-light cursor-pointer text-xs leading-4 mr-3'
               >
                 <span className='menu-link'>{post.date?.start_date}</span>
               </SmartLink>
@@ -74,20 +73,14 @@ const BlogPostCard = ({ post, index, showSummary }) => {
 
             <TwikooCommentCount
               post={post}
-              className='hover:text-blue-500 dark:hover:text-blue-400 hover:underline text-sm'
+              className='hover:text-brand-500 dark:hover:text-brand-400 hover:underline text-xs'
             />
-
-            <div className='hover:text-blue-500 dark:hover:text-blue-400  md:flex-nowrap flex-wrap md:justify-start inline-block'>
-              {post.tagItems?.map(tag => (
-                <TagItemMini key={tag.name} tag={tag} />
-              ))}
-            </div>
           </div>
 
           {(!showPreview || showSummary) && !post.results && (
             <p
               {...aosProps}
-              className='mt-4 text-gray-700 dark:text-gray-300 text-sm font-light leading-7'
+              className='mt-4 line-clamp-2 text-gray-700 dark:text-gray-300 text-sm font-light leading-7'
             >
               {post.summary}
             </p>

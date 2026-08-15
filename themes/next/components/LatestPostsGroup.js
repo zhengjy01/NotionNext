@@ -35,16 +35,21 @@ const LatestPostsGroup = ({ latestPosts }) => {
             title={post.title}
             href={post?.href}
             passHref
-            className={'my-1 flex font-light'}>
+            className='my-1 flex font-light border-b border-gray-100 dark:border-gray-800 last:border-0'
+          >
             <div
               className={
                 (selected
                   ? 'text-white  bg-gray-600 '
                   : 'text-gray-500 dark:text-gray-400 ') +
                 ' text-xs py-1.5 flex hover:bg-gray-500 px-2 duration-200 w-full ' +
-                'hover:text-white dark:hover:text-white cursor-pointer'
-              }>
+                'hover:text-white dark:hover:text-white cursor-pointer items-center justify-between'
+              }
+            >
               <li className='line-clamp-2'>{post.title}</li>
+              <span className='ml-2 text-[10px] text-gray-400 dark:text-gray-500 whitespace-nowrap'>
+                {post.date?.start_date}
+              </span>
             </div>
           </SmartLink>
         )

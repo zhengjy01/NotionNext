@@ -15,7 +15,7 @@ const InfoCard = props => {
         >
           <LazyImage
             src={siteInfo?.icon}
-            className='rounded-full'
+            className='rounded-full aspect-square object-cover'
             width={120}
             alt={siteConfig('AUTHOR')}
           />
