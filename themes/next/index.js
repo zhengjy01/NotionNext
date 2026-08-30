@@ -97,7 +97,8 @@ const LayoutBase = props => {
     <ThemeGlobalNext.Provider value={{ searchModal }}>
       <div
         id='theme-next'
-        className={`${siteConfig('FONT_STYLE')} dark:bg-black scroll-smooth`}>
+        className={`${siteConfig('FONT_STYLE')} dark:bg-black scroll-smooth`}
+      >
         <Style />
 
         {/* 移动端顶部导航栏 */}
@@ -117,7 +118,8 @@ const LayoutBase = props => {
             (JSON.parse(siteConfig('LAYOUT_SIDEBAR_REVERSE'))
               ? 'flex-row-reverse'
               : '') + ' next relative flex justify-center flex-1 pb-12'
-          }>
+          }
+        >
           {/* 左侧栏样式 */}
           <SideAreaLeft targetRef={targetRef} {...props} />
 
@@ -125,7 +127,8 @@ const LayoutBase = props => {
           <section
             id='container-inner'
             className={`${siteConfig('NEXT_NAV_TYPE', null, CONFIG) !== 'normal' ? 'mt-24' : ''} lg:max-w-3xl xl:max-w-4xl flex-grow md:mt-0 min-h-screen w-full relative z-10`}
-            ref={targetRef}>
+            ref={targetRef}
+          >
             {children}
           </section>
 
@@ -149,12 +152,14 @@ const LayoutBase = props => {
         {/* 右下角悬浮 */}
         <div
           ref={floatButtonGroup}
-          className='right-8 bottom-12 lg:right-2 fixed justify-end z-20 '>
+          className='right-8 bottom-12 lg:right-2 fixed justify-end z-20 '
+        >
           <div
             className={
               (showRightFloat ? 'animate__animated ' : 'hidden') +
               ' animate__fadeInUp rounded-md glassmorphism justify-center duration-500  animate__faster flex space-x-2 items-center cursor-pointer '
-            }>
+            }
+          >
             <JumpToTopButton percent={percent} />
             <JumpToBottomButton />
             <FloatDarkModeButton />
@@ -325,10 +330,10 @@ const LayoutPortfolio = props => {
 
   return (
     <>
-      <div className='mb-10 bg-white p-3 shadow-md md:p-8 dark:bg-hexo-black-gray min-h-full'>
+      <div className='mb-10 bg-white p-3 shadow-sm md:p-8 dark:bg-hexo-black-gray min-h-full'>
         <div className='mb-8 text-center'>
           <h2 className='mb-2 text-2xl font-bold text-gray-800 dark:text-gray-100'>
-            <i className='fas fa-briefcase mr-3 text-blue-600 dark:text-blue-400' />
+            <i className='fas fa-briefcase mr-3 text-brand-600 dark:text-brand-400' />
             作品集
           </h2>
           <p className='text-sm text-gray-500 dark:text-gray-400'>
@@ -365,19 +370,18 @@ const LayoutSlug = props => {
   useEffect(() => {
     // 404
     if (!post) {
-      setTimeout(
-        () => {
-          if (isBrowser) {
-            const article = document.querySelector('#article-wrapper #notion-article')
-            if (!article) {
-              router.push('/404').then(() => {
-                console.warn('找不到页面', router.asPath)
-              })
-            }
+      setTimeout(() => {
+        if (isBrowser) {
+          const article = document.querySelector(
+            '#article-wrapper #notion-article'
+          )
+          if (!article) {
+            router.push('/404').then(() => {
+              console.warn('找不到页面', router.asPath)
+            })
           }
-        },
-        waiting404
-      )
+        }
+      }, waiting404)
     }
   }, [post])
   return (
@@ -411,11 +415,13 @@ const LayoutCategoryIndex = props => {
                 key={category.name}
                 href={`/category/${category.name}`}
                 passHref
-                legacyBehavior>
+                legacyBehavior
+              >
                 <div
                   className={
                     'hover:text-black dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600 px-5 cursor-pointer py-2 hover:bg-gray-100'
-                  }>
+                  }
+                >
                   <i className='mr-4 fas fa-folder' />
                   {category.name}({category.count})
                 </div>
