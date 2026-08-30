@@ -97,7 +97,7 @@ const LayoutBase = props => {
     <ThemeGlobalNext.Provider value={{ searchModal }}>
       <div
         id='theme-next'
-        className={`${siteConfig('FONT_STYLE')} dark:bg-black scroll-smooth`}
+        className={`${siteConfig('FONT_STYLE')} bg-gray-50 dark:bg-black scroll-smooth`}
       >
         <Style />
 

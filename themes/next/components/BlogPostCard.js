@@ -13,16 +13,8 @@ const BlogPostCard = ({ post, index, showSummary }) => {
   const { locale } = useGlobal()
   const showPreview =
     siteConfig('NEXT_POST_LIST_PREVIEW', null, CONFIG) && post.blockMap
-  // 动画样式  首屏卡片不用，后面翻出来的加动画
-  const aosProps =
-    index > 2
-      ? {
-          'data-aos': 'fade-down',
-          'data-aos-duration': '400',
-          'data-aos-once': 'true',
-          'data-aos-anchor-placement': 'top-bottom'
-        }
-      : {}
+  // 动效收敛：去掉文章卡片入场动画（低"模板感"，更克制）；如需再开启改回 fade-down
+  const aosProps = {}
 
   return (
     <Card className='w-full'>
@@ -36,7 +28,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
             {...aosProps}
             href={post?.href}
             passHref
-            className={`cursor-pointer font-serif text-3xl ${showPreview ? 'text-center' : ''} leading-tight text-gray-700 dark:text-gray-100 hover:text-brand-500 dark:hover:text-brand-400`}
+            className={`cursor-pointer font-serif text-3xl ${showPreview ? 'text-center' : ''} leading-snug text-gray-800 dark:text-gray-100 hover:text-brand-500 dark:hover:text-brand-400`}
           >
             {siteConfig('POST_TITLE_ICON') && (
               <NotionIcon icon={post.pageIcon} />
@@ -80,7 +72,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
           {(!showPreview || showSummary) && !post.results && (
             <p
               {...aosProps}
-              className='mt-4 line-clamp-2 text-gray-700 dark:text-gray-300 text-base font-light leading-7'
+              className='mt-4 line-clamp-2 text-gray-600 dark:text-gray-300 text-base font-light leading-7'
             >
               {post.summary}
             </p>

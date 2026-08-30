@@ -46,8 +46,8 @@ const LatestPostsGroup = ({ latestPosts }) => {
                 'hover:text-white dark:hover:text-white cursor-pointer items-center justify-between'
               }
             >
-              <li className='line-clamp-2'>{post.title}</li>
-              <span className='ml-2 text-[11px] text-gray-500 dark:text-gray-400 whitespace-nowrap'>
+              <li className='line-clamp-2 flex-1 min-w-0'>{post.title}</li>
+              <span className='ml-2 flex-shrink-0 text-[11px] text-gray-500 dark:text-gray-400 whitespace-nowrap'>
                 {post.date?.start_date}
               </span>
             </div>
