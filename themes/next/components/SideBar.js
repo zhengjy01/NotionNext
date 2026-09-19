@@ -1,5 +1,6 @@
 import CategoryGroup from './CategoryGroup'
 import InfoCard from './InfoCard'
+import NowCard from './NowCard'
 import TagGroups from './TagGroups'
 import { useGlobal } from '@/lib/global'
 import SmartLink from '@/components/SmartLink'
@@ -26,6 +27,11 @@ const SideBar = (props) => {
         <section className='py-5'>
           <InfoCard {...props} />
         </section>
+
+        {/* 最近在做什么：小屏走抽屉，左栏卡片（lg+）此时被隐藏，两者互补不重复 */}
+        <div className='lg:hidden'>
+          <NowCard />
+        </div>
 
         {/* 分类  */}
         {categories && (
