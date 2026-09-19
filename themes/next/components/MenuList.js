@@ -66,11 +66,18 @@ export const MenuList = props => {
   // 放最前而不是跟在自定义菜单后面，因为它是最省事的入口；
   // 且必须在 CUSTOM_MENU 覆盖之后再插入，否则会被 Notion 自定义菜单挤掉
   if (siteConfig('NEXT_MENU_RANDOM', null, CONFIG)) {
+    // 文案优先用主题/Notion 配置里的 NEXT_MENU_RANDOM_TEXT：
+    // 本站 NOTION_CONFIG.LANG 是 en-US，光靠语言包会显示成 Random Post，
+    // 而旁边几项（归档/分类/标签/作品集）来自 Notion 菜单数据、本来就是中文
+    const randomName =
+      siteConfig('NEXT_MENU_RANDOM_TEXT', '', CONFIG) ||
+      locale.NAV.RANDOM ||
+      '随机阅读'
     links = [
       {
         id: '__random__',
         icon: 'fas fa-shuffle',
-        name: locale.NAV.RANDOM,
+        name: randomName,
         href: '/random',
         show: true
       }

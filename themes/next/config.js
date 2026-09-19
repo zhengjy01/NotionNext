@@ -32,6 +32,7 @@ const CONFIG = {
 
   // 菜单
   NEXT_MENU_RANDOM: true, // 显示「随机阅读」（桌面左栏 + 移动端抽屉，点击随机跳一篇已发布文章）
+  NEXT_MENU_RANDOM_TEXT: '随机阅读', // 「随机阅读」菜单文案；留空则回退语言包 NAV.RANDOM（多语言站点用它）
   NEXT_MENU_HOME: true, // 显示首页
   NEXT_MENU_CATEGORY: true, // 显示分类
   NEXT_MENU_TAG: true, // 显示标签

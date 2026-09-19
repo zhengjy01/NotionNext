@@ -2,10 +2,13 @@ import { render, screen } from '@testing-library/react'
 import { MenuList } from '@/themes/next/components/MenuList'
 
 // 站点配置：本用例只关心「随机阅读」这一项，其余开关给个明确值便于断言
+// 查找顺序照真实 siteConfig：显式值 → 主题 CONFIG（第 3 个参数）→ 兜底
 let siteConfigValues = {}
 jest.mock('@/lib/config', () => ({
-  siteConfig: (key, fallback) => {
-    return key in siteConfigValues ? siteConfigValues[key] : fallback
+  siteConfig: (key, fallback, extendConfig = {}) => {
+    if (key in siteConfigValues) return siteConfigValues[key]
+    if (extendConfig && key in extendConfig) return extendConfig[key]
+    return fallback
   }
 }))
 
@@ -16,7 +19,8 @@ jest.mock('@/lib/global', () => ({
         INDEX: '首页',
         ARCHIVE: '归档',
         PORTFOLIO: '作品集',
-        RANDOM: '随机阅读'
+        // 线上语言包实际是英文（Notion 里 LANG=en-US）
+        RANDOM: 'Random Post'
       },
       COMMON: { CATEGORY: '分类', TAGS: '标签' }
     }
@@ -77,6 +81,20 @@ describe('themes/next MenuList「随机阅读」入口', () => {
     const desktop = navLinks('nav')
     expect(desktop.map(l => l.text)).toEqual(['随机阅读', '归档', '分类'])
     expect(desktop[0].href).toBe('/random')
+  })
+
+  it('文案不被站点的 en-US 语言包带跑：优先用 NEXT_MENU_RANDOM_TEXT', () => {
+    renderMenu()
+
+    // 线上实况：语言包是 en-US（Random Post），主题配置把它压成中文
+    expect(navLinks('nav')[0].text).toBe('随机阅读')
+  })
+
+  it('NEXT_MENU_RANDOM_TEXT 留空时回退语言包 NAV.RANDOM', () => {
+    siteConfigValues.NEXT_MENU_RANDOM_TEXT = ''
+    renderMenu()
+
+    expect(navLinks('nav')[0].text).toBe('Random Post')
   })
 
   it('NEXT_MENU_RANDOM 关闭时不渲染', () => {
