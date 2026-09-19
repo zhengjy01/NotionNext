@@ -4,7 +4,11 @@ import CONFIG from '../config'
 import Card from './Card'
 
 /**
- * 「最近在做什么」卡片 —— **中间内容栏置顶**
+ * 「近况」卡片 —— **首页中间内容栏置顶**
+ *
+ * 名称说明（2026-09-19 改）：原名「最近在做什么」名不副实——三块内容里
+ * 只有「在做」是进行时，状态句（今天完成了什么）与最近产出（已发布）都是已发生的事。
+ * 「近况」同时覆盖两者。
  *
  * 数据**全部来自 Notion**（`type=Now / status=Published` 的那条页面），经
  * `lib/db/SiteDataApi.js` 的 `getNowData()` 解析后作为 `now` prop 传进来：
@@ -83,7 +87,7 @@ const NowCard = ({ now }) => {
         <div className='flex items-center gap-2 pb-3'>
           <span className='flex h-[7px] w-[7px] shrink-0 items-center justify-center rounded-full bg-brand-500/90 ring-2 ring-brand-500/15 dark:bg-brand-400/90 dark:ring-brand-400/15' />
           <h3 className='flex-1 truncate font-serif text-sm tracking-wide text-gray-800 dark:text-gray-100'>
-            最近在做什么
+            近况
           </h3>
           <span
             title='数据更新时间（北京时间）'
