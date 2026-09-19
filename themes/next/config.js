@@ -31,6 +31,7 @@ const CONFIG = {
   NEXT_LEFT_CONTACT_OPEN: false, // 左侧栏「联系方式」卡片初始是否展开（点标题可折叠/展开，用户选择记在浏览器本地；默认收起）
 
   // 菜单
+  NEXT_MENU_RANDOM: true, // 显示「随机阅读」（桌面左栏 + 移动端抽屉，点击随机跳一篇已发布文章）
   NEXT_MENU_HOME: true, // 显示首页
   NEXT_MENU_CATEGORY: true, // 显示分类
   NEXT_MENU_TAG: true, // 显示标签

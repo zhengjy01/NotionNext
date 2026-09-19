@@ -62,6 +62,21 @@ export const MenuList = props => {
     links = customMenu
   }
 
+  // 「随机阅读」：文章多了以后，让新访客一键开始阅读、不用先挑
+  // 放最前而不是跟在自定义菜单后面，因为它是最省事的入口；
+  // 且必须在 CUSTOM_MENU 覆盖之后再插入，否则会被 Notion 自定义菜单挤掉
+  if (siteConfig('NEXT_MENU_RANDOM', null, CONFIG)) {
+    links = [
+      {
+        id: '__random__',
+        icon: 'fas fa-shuffle',
+        name: locale.NAV.RANDOM,
+        href: '/random',
+        show: true
+      }
+    ].concat(Array.isArray(links) ? links : [])
+  }
+
   if (!links || links.length === 0) {
     return null
   }
@@ -76,7 +91,8 @@ export const MenuList = props => {
         data-aos-delay='400'
         data-aos-once='true'
         data-aos-anchor-placement='top-bottom'
-        className='hidden md:block leading-8 text-gray-500 dark:text-gray-400 '>
+        className='hidden md:block leading-8 text-gray-500 dark:text-gray-400 '
+      >
         {links.map(
           (link, index) =>
             link && link.show && <MenuItemDrop key={index} link={link} />
@@ -86,7 +102,8 @@ export const MenuList = props => {
       {/* 移动端菜单 */}
       <menu
         id='nav-menu-mobile'
-        className='block md:hidden my-auto justify-start bg-white'>
+        className='block md:hidden my-auto justify-start bg-white'
+      >
         {links?.map(
           (link, index) =>
             link &&
