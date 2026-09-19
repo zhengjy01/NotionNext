@@ -49,7 +49,9 @@ const Toc = ({ toc }) => {
 
   return (
     <div className='px-3'>
-      <div className='overflow-y-auto max-h-96 overscroll-none scroll-hidden' ref={tRef}>
+      <div
+        className='overflow-y-auto max-h-96 overscroll-none scroll-hidden'
+        ref={tRef}>
         <nav className='h-full'>
           {toc.map(tocItem => {
             const id = uuidToId(tocItem.id)
@@ -60,7 +62,10 @@ const Toc = ({ toc }) => {
                 href={`#${id}`}
                 className='catalog-item block duration-200 py-1'>
                 <span
-                  style={{ display: 'inline-block', marginLeft: tocItem.indentLevel * 16 }}
+                  style={{
+                    display: 'inline-block',
+                    marginLeft: tocItem.indentLevel * 16
+                  }}
                   className={`truncate ${activeSection === id ? 'font-semibold text-[var(--fuwari-primary)]' : ''}`}>
                   {tocItem.text}
                 </span>
@@ -74,4 +79,3 @@ const Toc = ({ toc }) => {
 }
 
 export default Toc
-

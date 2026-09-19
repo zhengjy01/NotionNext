@@ -25,8 +25,7 @@ const Tabs = ({ className, children }) => {
             <li
               key={index}
               className={`${currentTab === index ? 'font-black border-b-2 border-brand-600 text-brand-600' : 'font-extralight cursor-pointer'} text-sm font-sans`}
-              onClick={() => setCurrentTab(index)}
-            >
+              onClick={() => setCurrentTab(index)}>
               {item.key}
             </li>
           ))}
@@ -37,8 +36,7 @@ const Tabs = ({ className, children }) => {
         {validChildren.map((item, index) => (
           <section
             key={index}
-            className={`${currentTab === index ? 'opacity-100 static h-auto' : 'opacity-0 absolute h-0 pointer-events-none overflow-hidden'}`}
-          >
+            className={`${currentTab === index ? 'opacity-100 static h-auto' : 'opacity-0 absolute h-0 pointer-events-none overflow-hidden'}`}>
             {item}
           </section>
         ))}

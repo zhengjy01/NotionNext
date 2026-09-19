@@ -43,8 +43,7 @@ const SideAreaRight = props => {
       className={
         (JSON.parse(siteConfig('LAYOUT_SIDEBAR_REVERSE')) ? 'mr-4' : 'ml-4') +
         ' space-y-4 hidden xl:block flex-col w-60 relative z-10'
-      }
-    >
+      }>
       {siteConfig('NEXT_RIGHT_AD', null, CONFIG) && (
         <Card className='mb-2'>
           {/* 展示广告  */}
@@ -96,8 +95,7 @@ const SideAreaRight = props => {
                 <SmartLink
                   href={'/category'}
                   passHref
-                  className='text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline cursor-pointer'
-                >
+                  className='text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline cursor-pointer'>
                   {locale.COMMON.MORE}{' '}
                   <i className='fas fa-angle-double-right' />
                 </SmartLink>
@@ -121,8 +119,7 @@ const SideAreaRight = props => {
                 <SmartLink
                   href={'/tag'}
                   passHref
-                  className='text-gray-500 hover:text-black  dark:hover:text-white hover:underline cursor-pointer'
-                >
+                  className='text-gray-500 hover:text-black  dark:hover:text-white hover:underline cursor-pointer'>
                   {locale.COMMON.MORE}{' '}
                   <i className='fas fa-angle-double-right' />
                 </SmartLink>

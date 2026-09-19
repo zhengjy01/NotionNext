@@ -23,7 +23,10 @@ const RightFloatArea = ({ post }) => {
     <>
       {showTocDrawer && hasToc && (
         <div className='fuwari-toc-mobile lg:hidden'>
-          <div className='fuwari-toc-mask' onClick={() => setShowTocDrawer(false)} />
+          <div
+            className='fuwari-toc-mask'
+            onClick={() => setShowTocDrawer(false)}
+          />
           <section className='fuwari-card fuwari-toc-panel p-4'>
             <div className='flex items-center justify-between mb-2'>
               <h3 className='text-sm font-semibold tracking-wide uppercase text-[var(--fuwari-muted)]'>
@@ -41,7 +44,9 @@ const RightFloatArea = ({ post }) => {
         </div>
       )}
       <div className='fuwari-float-wrap fixed z-30 flex flex-col gap-2'>
-        <button className='fuwari-float-btn' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <button
+          className='fuwari-float-btn'
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <i className='fas fa-angle-up' />
         </button>
         {hasToc && (
@@ -54,7 +59,11 @@ const RightFloatArea = ({ post }) => {
         {post && siteConfig('FUWARI_WIDGET_TO_COMMENT', true, CONFIG) && (
           <button
             className='fuwari-float-btn'
-            onClick={() => document.getElementById('comment')?.scrollIntoView({ behavior: 'smooth' })}>
+            onClick={() =>
+              document
+                .getElementById('comment')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }>
             <i className='far fa-comment-dots' />
           </button>
         )}
@@ -69,4 +78,3 @@ const RightFloatArea = ({ post }) => {
 }
 
 export default RightFloatArea
-

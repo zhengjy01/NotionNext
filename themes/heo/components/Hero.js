@@ -239,7 +239,9 @@ function TopGroup(props) {
         className='w-full flex space-x-3 xl:space-x-0 xl:grid xl:grid-cols-3 xl:gap-3 xl:h-[342px]'>
         {topPosts?.map((p, index) => {
           return (
-            <SmartLink href={`${siteConfig('SUB_PATH', '')}/${p?.slug}`} key={index}>
+            <SmartLink
+              href={`${siteConfig('SUB_PATH', '')}/${p?.slug}`}
+              key={index}>
               <div className='cursor-pointer h-[164px] group relative flex flex-col w-52 xl:w-full overflow-hidden shadow bg-white dark:bg-black dark:text-white rounded-xl'>
                 <LazyImage
                   priority={index === 0}

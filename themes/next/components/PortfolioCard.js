@@ -36,8 +36,7 @@ const PortfolioCard = ({ item }) => {
         {hasUrl ? (
           <SmartLink
             href={item.url}
-            className='inline-flex items-center gap-1.5 text-sm font-medium text-brand-600 transition-colors hover:text-brand-700 dark:text-brand-300 dark:hover:text-brand-200'
-          >
+            className='inline-flex items-center gap-1.5 text-sm font-medium text-brand-600 transition-colors hover:text-brand-700 dark:text-brand-300 dark:hover:text-brand-200'>
             <span>{locale?.COMMON?.VIEW || '访问'}</span>
             <i className='fas fa-arrow-right' />
           </SmartLink>

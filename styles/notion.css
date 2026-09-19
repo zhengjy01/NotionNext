@@ -600,8 +600,9 @@ summary > .notion-h {
 }
 
 .notion-page-icon {
-  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', NotoColorEmoji,
-    'Noto Color Emoji', 'Segoe UI Symbol', 'Android Emoji', EmojiSymbols;
+  font-family:
+    'Apple Color Emoji', 'Segoe UI Emoji', NotoColorEmoji, 'Noto Color Emoji',
+    'Segoe UI Symbol', 'Android Emoji', EmojiSymbols;
   font-size: 1.1em;
   margin: 2px 4px 0 2px;
   fill: var(--fg-color-6);
@@ -642,8 +643,8 @@ svg.notion-page-icon {
   background: var(--bg-color-2);
   border-radius: 3px;
   font-size: 85%;
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
-    monospace;
+  font-family:
+    'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 .notion-inline-underscore {
@@ -770,8 +771,8 @@ code[class*='language-'] {
   display: block;
   box-sizing: border-box;
   overflow: auto;
-  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier,
-    monospace;
+  font-family:
+    SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   @apply w-full mb-0 dark:bg-black !important;
 }
 
@@ -958,7 +959,7 @@ code[class*='language-'] {
   overflow: hidden;
 }
 
-.notion-callout-text .notion-text{
+.notion-callout-text .notion-text {
   padding: 0px 0px !important;
   margin: 0px 0px !important;
   line-height: normal !important;
@@ -2027,7 +2028,7 @@ code.language-mermaid {
   display: none;
 }
 
-.mermaid .invisible{
+.mermaid .invisible {
   visibility: inherit;
 }
 

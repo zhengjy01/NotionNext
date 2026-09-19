@@ -145,7 +145,6 @@ const NotionPage = ({ post, className }) => {
   )
 }
 
-
 /**
  * 页面的数据库链接禁止跳转，只能查看
  */

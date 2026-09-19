@@ -35,7 +35,8 @@ const CONFIG = {
   FUWARI_CONTACT_TEXT: 'Get in touch',
   FUWARI_CONTACT_FLIP_CARD: true,
   FUWARI_CONTACT_BACK_TITLE: 'Keep in touch',
-  FUWARI_CONTACT_BACK_DESCRIPTION: 'Share your ideas, collaboration, and feedback anytime.',
+  FUWARI_CONTACT_BACK_DESCRIPTION:
+    'Share your ideas, collaboration, and feedback anytime.',
   FUWARI_CONTACT_BACK_TEXT: 'Open Contact',
   FUWARI_WIDGET_AD: false,
   FUWARI_WIDGET_WWADS: true,
@@ -59,4 +60,3 @@ const CONFIG = {
 }
 
 export default CONFIG
-

@@ -11,8 +11,7 @@ const InfoCard = props => {
           className='hover:rotate-45 hover:scale-125 transform duration-200 cursor-pointer'
           onClick={() => {
             Router.push('/')
-          }}
-        >
+          }}>
           <LazyImage
             src={siteInfo?.icon}
             className='rounded-full aspect-square object-cover'

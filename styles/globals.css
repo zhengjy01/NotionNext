@@ -287,16 +287,15 @@ img {
   overflow: hidden;
 }
 
-
-.lazy-image-placeholder{
-  background: 
-      linear-gradient(90deg,#0001 33%,#0005 50%,#0001 66%)
-      #f2f2f2;
-  background-size:300% 100%;
+.lazy-image-placeholder {
+  background: linear-gradient(90deg, #0001 33%, #0005 50%, #0001 66%) #f2f2f2;
+  background-size: 300% 100%;
   animation: l1 1s infinite linear;
+}
+@keyframes l1 {
+  0% {
+    background-position: right;
   }
-  @keyframes l1 {
-  0% {background-position: right}
 }
 /* 侧栏滚动容器：内容超出视口时可滚动，但不显示滚动条（保持版面干净） */
 .sidebar-scroll {

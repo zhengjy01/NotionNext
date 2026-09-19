@@ -6,14 +6,14 @@ This docs directory helps contributors and new developers understand the project
 
 ## Start Here (5 minutes)
 
-| Topic | English | 中文 |
-| --- | --- | --- |
-| Getting Started | [GETTING_STARTED.en.md](./GETTING_STARTED.en.md) | [GETTING_STARTED.md](./GETTING_STARTED.md) |
-| Architecture | [ARCHITECTURE.en.md](./ARCHITECTURE.en.md) | [ARCHITECTURE.md](./ARCHITECTURE.md) |
-| Project Structure | [PROJECT_STRUCTURE.en.md](./PROJECT_STRUCTURE.en.md) | [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) |
-| Configuration | [CONFIGURATION.en.md](./CONFIGURATION.en.md) | [CONFIGURATION.md](./CONFIGURATION.md) |
-| Contribution Workflow | [CONTRIBUTION_WORKFLOW.en.md](./CONTRIBUTION_WORKFLOW.en.md) | [CONTRIBUTION_WORKFLOW.md](./CONTRIBUTION_WORKFLOW.md) |
-| Theme Migration Guide | [THEME_MIGRATION_GUIDE.md](./THEME_MIGRATION_GUIDE.md) | [THEME_MIGRATION_GUIDE.zh-CN.md](./THEME_MIGRATION_GUIDE.zh-CN.md) |
+| Topic                 | English                                                      | 中文                                                               |
+| --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------ |
+| Getting Started       | [GETTING_STARTED.en.md](./GETTING_STARTED.en.md)             | [GETTING_STARTED.md](./GETTING_STARTED.md)                         |
+| Architecture          | [ARCHITECTURE.en.md](./ARCHITECTURE.en.md)                   | [ARCHITECTURE.md](./ARCHITECTURE.md)                               |
+| Project Structure     | [PROJECT_STRUCTURE.en.md](./PROJECT_STRUCTURE.en.md)         | [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)                     |
+| Configuration         | [CONFIGURATION.en.md](./CONFIGURATION.en.md)                 | [CONFIGURATION.md](./CONFIGURATION.md)                             |
+| Contribution Workflow | [CONTRIBUTION_WORKFLOW.en.md](./CONTRIBUTION_WORKFLOW.en.md) | [CONTRIBUTION_WORKFLOW.md](./CONTRIBUTION_WORKFLOW.md)             |
+| Theme Migration Guide | [THEME_MIGRATION_GUIDE.md](./THEME_MIGRATION_GUIDE.md)       | [THEME_MIGRATION_GUIDE.zh-CN.md](./THEME_MIGRATION_GUIDE.zh-CN.md) |
 
 ## Purpose
 
@@ -28,4 +28,3 @@ This docs directory helps contributors and new developers understand the project
 - Root `CONTRIBUTING.md`: public contribution entry
 - Root `DEVELOPMENT.md`: commands and tooling
 - `docs/`: architecture, configuration, and workflow details
-

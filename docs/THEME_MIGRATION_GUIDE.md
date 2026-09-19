@@ -149,4 +149,3 @@ For `themes/fuwari`, these specifics are already applied:
   - avoid putting markdown docs under `themes/<theme>/` if build pipeline treats theme dirs as runtime modules
   - place theme docs under `docs/themes/` instead
 - **Route transition feel**: add lightweight page/card transition to mimic source theme interaction rhythm.
-

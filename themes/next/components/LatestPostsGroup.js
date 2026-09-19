@@ -35,8 +35,7 @@ const LatestPostsGroup = ({ latestPosts }) => {
             title={post.title}
             href={post?.href}
             passHref
-            className='my-1 flex font-light border-b border-gray-100 dark:border-gray-800 last:border-0'
-          >
+            className='my-1 flex font-light border-b border-gray-100 dark:border-gray-800 last:border-0'>
             <div
               className={
                 (selected
@@ -44,8 +43,7 @@ const LatestPostsGroup = ({ latestPosts }) => {
                   : 'text-gray-500 dark:text-gray-400 ') +
                 ' text-xs py-1.5 flex hover:bg-gray-500 px-2 duration-200 w-full ' +
                 'hover:text-white dark:hover:text-white cursor-pointer items-center justify-between'
-              }
-            >
+              }>
               <li className='line-clamp-2 flex-1 min-w-0'>{post.title}</li>
               <span className='ml-2 flex-shrink-0 text-[11px] text-gray-500 dark:text-gray-400 whitespace-nowrap'>
                 {post.date?.start_date}

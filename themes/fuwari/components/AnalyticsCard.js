@@ -8,7 +8,11 @@ const Item = ({ label, value }) => (
   </div>
 )
 
-const AnalyticsCard = ({ postCount = 0, categoryOptions = [], tagOptions = [] }) => {
+const AnalyticsCard = ({
+  postCount = 0,
+  categoryOptions = [],
+  tagOptions = []
+}) => {
   if (!siteConfig('FUWARI_WIDGET_ANALYTICS', true, CONFIG)) return null
 
   return (
@@ -26,4 +30,3 @@ const AnalyticsCard = ({ postCount = 0, categoryOptions = [], tagOptions = [] })
 }
 
 export default AnalyticsCard
-

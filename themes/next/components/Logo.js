@@ -9,15 +9,13 @@ const Logo = props => {
         className={
           'flex flex-col justify-center items-center cursor-pointer bg-gray-900 dark:bg-gray-800 space-y-3 font-bold ' +
           className
-        }
-      >
+        }>
         <div
           data-aos='fade-down'
           data-aos-duration='500'
           data-aos-once='true'
           data-aos-anchor-placement='top-bottom'
-          className='font-serif text-xl text-white logo'
-        >
+          className='font-serif text-xl text-white logo'>
           {' '}
           {siteConfig('TITLE')}
         </div>
@@ -27,8 +25,7 @@ const Logo = props => {
           data-aos-delay='300'
           data-aos-once='true'
           data-aos-anchor-placement='top-bottom'
-          className='text-sm text-gray-300 font-light text-center'
-        >
+          className='text-sm text-gray-300 font-light text-center'>
           {' '}
           {siteConfig('DESCRIPTION')}
         </div>

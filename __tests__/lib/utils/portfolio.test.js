@@ -57,7 +57,12 @@ describe('groupPortfolioByCategory', () => {
 
   it('category 为空/空白/缺失时归入 unclassified 并置底', () => {
     const groups = groupPortfolioByCategory(
-      [item('a', '  '), item('b', undefined), { title: 'c' }, item('d', '小程序')],
+      [
+        item('a', '  '),
+        item('b', undefined),
+        { title: 'c' },
+        item('d', '小程序')
+      ],
       { unclassified: '未分类' }
     )
     const last = groups[groups.length - 1]

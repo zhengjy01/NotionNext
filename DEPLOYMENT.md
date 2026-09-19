@@ -237,7 +237,7 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
       - NODE_ENV=production
       - NOTION_PAGE_ID=${NOTION_PAGE_ID}
@@ -249,7 +249,7 @@ services:
   redis:
     image: redis:7-alpine
     ports:
-      - "6379:6379"
+      - '6379:6379'
     volumes:
       - redis_data:/data
     restart: unless-stopped
@@ -292,35 +292,35 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Build
-      run: npm run export
-      env:
-        NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
-        
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run export
+        env:
+          NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
 ```
 
 2. **配置 Secrets**
@@ -385,6 +385,7 @@ NEXT_PUBLIC_ANALYTICS_GOOGLE_ID=G-XXXXXXXXXX
 ### 常见问题
 
 1. **构建失败**
+
    ```bash
    # 清理缓存
    npm run clean
@@ -394,6 +395,7 @@ NEXT_PUBLIC_ANALYTICS_GOOGLE_ID=G-XXXXXXXXXX
    ```
 
 2. **环境变量问题**
+
    ```bash
    # 检查环境变量
    npm run quality

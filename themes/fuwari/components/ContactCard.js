@@ -32,7 +32,11 @@ const ContactCard = () => {
       <h3 className='text-sm font-semibold mb-2 tracking-wide uppercase text-[var(--fuwari-muted)]'>
         {title}
       </h3>
-      {desc && <p className='text-sm leading-6 text-[var(--fuwari-muted)] mb-3'>{desc}</p>}
+      {desc && (
+        <p className='text-sm leading-6 text-[var(--fuwari-muted)] mb-3'>
+          {desc}
+        </p>
+      )}
       {url && <p className='fuwari-link text-sm font-medium'>{text} →</p>}
     </div>
   )
@@ -87,4 +91,3 @@ const ContactCard = () => {
 }
 
 export default ContactCard
-

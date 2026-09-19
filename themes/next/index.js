@@ -100,8 +100,7 @@ const LayoutBase = props => {
     <ThemeGlobalNext.Provider value={{ searchModal }}>
       <div
         id='theme-next'
-        className={`${siteConfig('FONT_STYLE')} bg-gray-50 dark:bg-black scroll-smooth`}
-      >
+        className={`${siteConfig('FONT_STYLE')} bg-gray-50 dark:bg-black scroll-smooth`}>
         <Style />
 
         {/* 移动端顶部导航栏 */}
@@ -121,8 +120,7 @@ const LayoutBase = props => {
             (JSON.parse(siteConfig('LAYOUT_SIDEBAR_REVERSE'))
               ? 'flex-row-reverse'
               : '') + ' next relative flex justify-center flex-1 pb-12'
-          }
-        >
+          }>
           {/* 左侧栏样式 */}
           <SideAreaLeft targetRef={targetRef} {...props} />
 
@@ -130,8 +128,7 @@ const LayoutBase = props => {
           <section
             id='container-inner'
             className={`${siteConfig('NEXT_NAV_TYPE', null, CONFIG) !== 'normal' ? 'mt-24' : ''} lg:max-w-3xl xl:max-w-4xl flex-grow md:mt-0 min-h-screen w-full relative z-10`}
-            ref={targetRef}
-          >
+            ref={targetRef}>
             {children}
           </section>
 
@@ -155,14 +152,12 @@ const LayoutBase = props => {
         {/* 右下角悬浮 */}
         <div
           ref={floatButtonGroup}
-          className='right-8 bottom-12 lg:right-2 fixed justify-end z-20 '
-        >
+          className='right-8 bottom-12 lg:right-2 fixed justify-end z-20 '>
           <div
             className={
               (showRightFloat ? 'animate__animated ' : 'hidden') +
               ' animate__fadeInUp rounded-md glassmorphism justify-center duration-500  animate__faster flex space-x-2 items-center cursor-pointer '
-            }
-          >
+            }>
             <JumpToTopButton percent={percent} />
             <JumpToBottomButton />
             <FloatDarkModeButton />
@@ -347,7 +342,8 @@ const LayoutPortfolio = props => {
   })
   // 全部作品都还没分类时，分类没有意义，退回原来的平铺网格
   const grouped =
-    groups.length > 1 || (groups.length === 1 && groups[0].name !== unclassified)
+    groups.length > 1 ||
+    (groups.length === 1 && groups[0].name !== unclassified)
   // 分类初始展开状态：first（只开第一个）/ all（全开）/ none（全关）
   const initialOpen = siteConfig(
     'PORTFOLIO_CATEGORY_INITIAL',
@@ -355,7 +351,9 @@ const LayoutPortfolio = props => {
     props?.NOTION_CONFIG
   )
   const isOpenInitially = index =>
-    groups.length === 1 || initialOpen === 'all' || (initialOpen === 'first' && index === 0)
+    groups.length === 1 ||
+    initialOpen === 'all' ||
+    (initialOpen === 'first' && index === 0)
 
   return (
     <>
@@ -458,13 +456,11 @@ const LayoutCategoryIndex = props => {
                 key={category.name}
                 href={`/category/${category.name}`}
                 passHref
-                legacyBehavior
-              >
+                legacyBehavior>
                 <div
                   className={
                     'hover:text-black dark:hover:text-white dark:text-gray-300 dark:hover:bg-gray-600 px-5 cursor-pointer py-2 hover:bg-gray-100'
-                  }
-                >
+                  }>
                   <i className='mr-4 fas fa-folder' />
                   {category.name}({category.count})
                 </div>

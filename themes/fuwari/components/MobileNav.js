@@ -10,7 +10,10 @@ const MobileNav = ({ locale, customNav, customMenu }) => {
   const panelRef = useRef(null)
   if (!siteConfig('FUWARI_MOBILE_MENU', true, CONFIG)) return null
 
-  const links = getFuwariMenuLinks({ locale, customNav, customMenu }).slice(0, 5)
+  const links = getFuwariMenuLinks({ locale, customNav, customMenu }).slice(
+    0,
+    5
+  )
 
   useEffect(() => {
     const onClickOutside = e => {
@@ -54,8 +57,12 @@ const MobileNav = ({ locale, customNav, customMenu }) => {
                     <button
                       type='button'
                       className='px-2 py-2 text-xs'
-                      onClick={() => setOpenSub(prev => (prev === link.id ? '' : link.id))}>
-                      <i className={`fas ${openSub === link.id ? 'fa-angle-up' : 'fa-angle-down'}`} />
+                      onClick={() =>
+                        setOpenSub(prev => (prev === link.id ? '' : link.id))
+                      }>
+                      <i
+                        className={`fas ${openSub === link.id ? 'fa-angle-up' : 'fa-angle-down'}`}
+                      />
                     </button>
                   )}
                 </div>
@@ -83,4 +90,3 @@ const MobileNav = ({ locale, customNav, customMenu }) => {
 }
 
 export default MobileNav
-

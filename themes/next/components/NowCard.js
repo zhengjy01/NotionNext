@@ -67,8 +67,7 @@ const SectionLabel = ({ children, first }) => (
   <div
     className={`pb-2 text-[11px] font-medium tracking-[0.14em] text-gray-400 dark:text-gray-500 ${
       first ? '' : 'pt-4'
-    }`}
-  >
+    }`}>
     {children}
   </div>
 )
@@ -91,8 +90,7 @@ const NowCard = ({ now }) => {
           </h3>
           <span
             title='数据更新时间（北京时间）'
-            className='shrink-0 text-[11px] tabular-nums text-gray-400 dark:text-gray-500'
-          >
+            className='shrink-0 text-[11px] tabular-nums text-gray-400 dark:text-gray-500'>
             {now.updatedAtLabel || formatUpdated(now.updatedAt)}
           </span>
         </div>
@@ -114,8 +112,7 @@ const NowCard = ({ now }) => {
                   <li
                     key={i}
                     title={item.title}
-                    className='flex gap-2 text-[13px] leading-[1.7] text-gray-500 dark:text-gray-400'
-                  >
+                    className='flex gap-2 text-[13px] leading-[1.7] text-gray-500 dark:text-gray-400'>
                     <span className='mt-[8px] h-[3px] w-[3px] shrink-0 rounded-full bg-gray-300 dark:bg-gray-600' />
                     <span className='line-clamp-2'>{item.title}</span>
                   </li>
@@ -144,8 +141,7 @@ const NowCard = ({ now }) => {
                             strokeWidth='2'
                             strokeLinecap='round'
                             strokeLinejoin='round'
-                            aria-hidden='true'
-                          >
+                            aria-hidden='true'>
                             <path d='M7 17 17 7M9 7h8v8' />
                           </svg>
                         )}
@@ -160,13 +156,14 @@ const NowCard = ({ now }) => {
                       <SmartLink
                         href={item.href}
                         title={item.title}
-                        className='group flex items-start justify-between'
-                      >
+                        className='group flex items-start justify-between'>
                         {row}
                       </SmartLink>
                     </li>
                   ) : (
-                    <li key={i} className='group flex items-start justify-between'>
+                    <li
+                      key={i}
+                      className='group flex items-start justify-between'>
                       {row}
                     </li>
                   )

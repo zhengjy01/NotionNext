@@ -10,8 +10,7 @@ const XhsIcon = (
   <svg
     viewBox='0 0 24 24'
     className='inline-block h-4 w-4 fill-current'
-    aria-hidden='true'
-  >
+    aria-hidden='true'>
     <path d='M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v14h14V5H5zm2 3h10v1.5H7V8zm0 3.5h10V13H7v-1.5zm0 3.5h7V16H7v-1z' />
   </svg>
 )
@@ -20,8 +19,7 @@ const JikeIcon = (
   <svg
     viewBox='0 0 24 24'
     className='inline-block h-4 w-4 fill-current'
-    aria-hidden='true'
-  >
+    aria-hidden='true'>
     <path d='M13 2 3 14h7l-1 8 10-12h-7l1-8z' />
   </svg>
 )
@@ -116,8 +114,7 @@ const SocialCard = () => {
           aria-expanded={open}
           aria-controls={PANEL_ID}
           title={open ? '收起联系方式' : '展开联系方式'}
-          className='group flex w-full cursor-pointer items-center gap-2 text-sm text-gray-600 transition-colors duration-200 hover:text-brand-600 dark:text-gray-300 dark:hover:text-brand-400'
-        >
+          className='group flex w-full cursor-pointer items-center gap-2 text-sm text-gray-600 transition-colors duration-200 hover:text-brand-600 dark:text-gray-300 dark:hover:text-brand-400'>
           <i className='fas fa-address-book text-brand-600 dark:text-brand-400' />
           <span className='flex-1 text-left'>
             {locale?.CONTACT || '联系方式'}
@@ -134,8 +131,7 @@ const SocialCard = () => {
               open
                 ? 'rotate-180 text-brand-500 dark:text-brand-400'
                 : 'text-gray-400 dark:text-gray-500'
-            }`}
-          >
+            }`}>
             <path d='M6 9l6 6 6-6' />
           </svg>
         </button>
@@ -147,8 +143,7 @@ const SocialCard = () => {
           aria-hidden={!open}
           className={`grid transition-[grid-template-rows] duration-300 ease-out ${
             open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-          }`}
-        >
+          }`}>
           <div className='overflow-hidden'>
             <div className='grid grid-cols-1 gap-1 pt-1.5'>
               {items.map(item => (
@@ -162,15 +157,13 @@ const SocialCard = () => {
                         className: 'cursor-pointer'
                       }
                     : { target: '_blank', rel: 'noreferrer', href: item.href })}
-                  className='flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-brand-600 dark:hover:text-brand-400 transition duration-150'
-                >
+                  className='flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-brand-600 dark:hover:text-brand-400 transition duration-150'>
                   <span className='w-5 text-center text-lg leading-none'>
                     {item.xLogo ? (
                       <svg
                         viewBox='0 0 24 24'
                         className='inline-block h-4 w-4 fill-current'
-                        aria-hidden='true'
-                      >
+                        aria-hidden='true'>
                         <path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z' />
                       </svg>
                     ) : item.node ? (

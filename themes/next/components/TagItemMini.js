@@ -12,8 +12,7 @@ const TagItemMini = ({ tag, selected = false }) => {
            selected
              ? 'text-white dark:text-gray-300 bg-black dark:bg-black dark:hover:bg-gray-900'
              : 'text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:shadow-xl'
-         }`}
-    >
+         }`}>
       <div className='font-light dark:text-gray-400'>
         {selected && <i className='fas fa-tag mr-1' />} {tag.name}
         {tag.count ? <span className='opacity-50'>({tag.count})</span> : null}

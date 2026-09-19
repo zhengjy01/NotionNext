@@ -18,7 +18,7 @@ export class RateLimiter {
   constructor(
     private maxRequestsPerMinute = 200,
     private lockFilePath?: string
-  ) { }
+  ) {}
 
   private async acquireLock() {
     if (!this.lockFilePath) return
@@ -26,7 +26,8 @@ export class RateLimiter {
     if (fs.existsSync(this.lockFilePath)) {
       const stats = fs.statSync(this.lockFilePath)
       const age = Date.now() - stats.ctimeMs
-      if (age > 30 * 1000) { // 30秒
+      if (age > 30 * 1000) {
+        // 30秒
         try {
           fs.unlinkSync(this.lockFilePath)
           console.warn('[限流] 删除陈旧锁文件:', this.lockFilePath)
@@ -37,10 +38,13 @@ export class RateLimiter {
     }
     while (true) {
       try {
-        fs.writeFileSync(this.lockFilePath, process.pid.toString(), { flag: 'wx' })
+        fs.writeFileSync(this.lockFilePath, process.pid.toString(), {
+          flag: 'wx'
+        })
         return
       } catch (err: any) {
-        if (err.code === 'EEXIST') await new Promise(res => setTimeout(res, 100))
+        if (err.code === 'EEXIST')
+          await new Promise(res => setTimeout(res, 100))
         else throw err
       }
     }
@@ -48,8 +52,11 @@ export class RateLimiter {
 
   private releaseLock() {
     if (!this.lockFilePath) return
-    try { if (fs.existsSync(this.lockFilePath)) fs.unlinkSync(this.lockFilePath) }
-    catch (err) { console.error('释放锁失败', err) }
+    try {
+      if (fs.existsSync(this.lockFilePath)) fs.unlinkSync(this.lockFilePath)
+    } catch (err) {
+      console.error('释放锁失败', err)
+    }
   }
 
   public enqueue<T>(key: string, requestFunc: () => Promise<T>): Promise<T> {
@@ -71,7 +78,10 @@ export class RateLimiter {
   }
 
   private async processQueue() {
-    if (this.queue.length === 0) { this.isProcessing = false; return }
+    if (this.queue.length === 0) {
+      this.isProcessing = false
+      return
+    }
     this.isProcessing = true
 
     try {
@@ -79,7 +89,10 @@ export class RateLimiter {
       const now = Date.now()
       const elapsed = now - this.windowStart
 
-      if (elapsed > 60_000) { this.requestCount = 0; this.windowStart = now }
+      if (elapsed > 60_000) {
+        this.requestCount = 0
+        this.windowStart = now
+      }
       if (this.requestCount >= this.maxRequestsPerMinute) {
         const waitTime = 60_000 - elapsed + 100
         await new Promise(res => setTimeout(res, waitTime))
@@ -100,9 +113,11 @@ export class RateLimiter {
         this.lastRequestTime = Date.now()
         this.requestCount++
         resolve(result)
-      } catch (err) { reject(err) }
-      finally { this.inflight.delete(key) }
-
+      } catch (err) {
+        reject(err)
+      } finally {
+        this.inflight.delete(key)
+      }
     } catch (err) {
       console.error('限流队列异常', err)
     } finally {

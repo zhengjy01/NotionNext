@@ -98,8 +98,7 @@ const TopNav = props => {
             <SmartLink
               href={'/category'}
               passHref
-              className='mb-3 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline cursor-pointer'
-            >
+              className='mb-3 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline cursor-pointer'>
               {locale.COMMON.MORE} <i className='fas fa-angle-double-right' />
             </SmartLink>
           </div>
@@ -120,8 +119,7 @@ const TopNav = props => {
             <SmartLink
               href={'/tag'}
               passHref
-              className='text-gray-500 hover:text-black  dark:hover:text-white hover:underline cursor-pointer'
-            >
+              className='text-gray-500 hover:text-black  dark:hover:text-white hover:underline cursor-pointer'>
               {locale.COMMON.MORE} <i className='fas fa-angle-double-right' />
             </SmartLink>
           </div>
@@ -140,8 +138,7 @@ const TopNav = props => {
       {/* 导航栏 */}
       <div
         id='sticky-nav'
-        className={`${siteConfig('NEXT_NAV_TYPE', null, CONFIG) !== 'normal' ? 'fixed' : 'relative'} lg:relative w-full top-0 z-20 transform duration-500`}
-      >
+        className={`${siteConfig('NEXT_NAV_TYPE', null, CONFIG) !== 'normal' ? 'fixed' : 'relative'} lg:relative w-full top-0 z-20 transform duration-500`}>
         <div className='w-full flex justify-between items-center p-4 bg-gray-900 dark:bg-gray-800 text-white'>
           {/* 左侧LOGO 标题 */}
           <div className='flex flex-none flex-grow-0'>
@@ -162,8 +159,7 @@ const TopNav = props => {
           <div className='mr-1 flex justify-end items-center text-sm space-x-4 font-serif dark:text-gray-200'>
             <div
               className='cursor-pointer block lg:hidden'
-              onClick={showSearchModal}
-            >
+              onClick={showSearchModal}>
               <i className='mr-2 fas fa-search' />
             </div>
           </div>

@@ -20,16 +20,14 @@ const BlogPostCard = ({ post, index, showSummary }) => {
     <Card className='w-full'>
       <div
         key={post.id}
-        className='flex flex-col-reverse justify-between duration-300'
-      >
+        className='flex flex-col-reverse justify-between duration-300'>
         <div className='lg:p-8 p-4 flex flex-col w-full'>
           {/* 文章标题 */}
           <SmartLink
             {...aosProps}
             href={post?.href}
             passHref
-            className={`cursor-pointer font-serif text-3xl ${showPreview ? 'text-center' : ''} leading-snug text-gray-800 dark:text-gray-100 hover:text-brand-500 dark:hover:text-brand-400`}
-          >
+            className={`cursor-pointer font-serif text-3xl ${showPreview ? 'text-center' : ''} leading-snug text-gray-800 dark:text-gray-100 hover:text-brand-500 dark:hover:text-brand-400`}>
             {siteConfig('POST_TITLE_ICON') && (
               <NotionIcon icon={post.pageIcon} />
             )}{' '}
@@ -38,16 +36,14 @@ const BlogPostCard = ({ post, index, showSummary }) => {
 
           <div
             {...aosProps}
-            className={`flex mt-2 items-center ${showPreview ? 'justify-center' : 'justify-start'} flex-wrap dark:text-gray-400 text-gray-500 `}
-          >
+            className={`flex mt-2 items-center ${showPreview ? 'justify-center' : 'justify-start'} flex-wrap dark:text-gray-400 text-gray-500 `}>
             <div>
               {post.category && (
                 <>
                   <SmartLink
                     href={`/category/${post.category}`}
                     passHref
-                    className='hover:text-brand-500 dark:hover:text-brand-400 cursor-pointer font-light text-xs transform'
-                  >
+                    className='hover:text-brand-500 dark:hover:text-brand-400 cursor-pointer font-light text-xs transform'>
                     <i className='mr-1 fas fa-folder' />
                     <span className='menu-link'>{post.category}</span>
                   </SmartLink>
@@ -57,8 +53,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
               <SmartLink
                 href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}
                 passHref
-                className='hover:text-brand-500 dark:hover:text-brand-400 font-light cursor-pointer text-xs leading-4 mr-3'
-              >
+                className='hover:text-brand-500 dark:hover:text-brand-400 font-light cursor-pointer text-xs leading-4 mr-3'>
                 <span className='menu-link'>{post.date?.start_date}</span>
               </SmartLink>
             </div>
@@ -72,8 +67,7 @@ const BlogPostCard = ({ post, index, showSummary }) => {
           {(!showPreview || showSummary) && !post.results && (
             <p
               {...aosProps}
-              className='mt-4 line-clamp-2 text-gray-600 dark:text-gray-300 text-base font-light leading-7'
-            >
+              className='mt-4 line-clamp-2 text-gray-600 dark:text-gray-300 text-base font-light leading-7'>
               {post.summary}
             </p>
           )}

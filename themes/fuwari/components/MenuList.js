@@ -41,7 +41,9 @@ const MenuList = ({ locale, customNav, customMenu, mobile = false }) => {
           ) : (
             <div className='px-3 py-1.5 rounded-lg font-semibold hover:bg-[var(--fuwari-bg-soft)] cursor-default select-none'>
               {link.name || link.title}
-              {!!link.subMenus?.length && <i className='fas fa-angle-down ml-1 text-xs' />}
+              {!!link.subMenus?.length && (
+                <i className='fas fa-angle-down ml-1 text-xs' />
+              )}
             </div>
           )}
 
@@ -70,4 +72,3 @@ const MenuList = ({ locale, customNav, customMenu, mobile = false }) => {
 }
 
 export default MenuList
-
