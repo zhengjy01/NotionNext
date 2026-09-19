@@ -1,6 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-19T01:56:29.376Z",
+  "updatedAt": "2026-09-19T01:59:37.459Z",
+  "updatedAtLabel": "09-19 09:59",
   "status": "dsh-updater 聚合平台收录最后一环收口",
   "doing": [
     {
@@ -10,7 +11,7 @@
       "title": "dsh-restart：重启主实例让旧标签页自愈与 401 引导生效"
     },
     {
-      "title": "重启 DSH 让 dsh-backup-migrator 0.4.1 生效（用户内容层 + git 重试）"
+      "title": "dsh-task-dispatcher：新增「省钱模式」（DeepSeek 空闲时段才执行任务）"
     }
   ],
   "recent": [

@@ -17,12 +17,33 @@ import nowData from '@/data/now.json'
 
 const pad = n => String(n).padStart(2, '0')
 
-/** 2026-09-19T09:29:00+08:00 → "09-19 09:29"（按访问者本地时区） */
+/**
+ * 兜底格式化：**必须显式锁 Asia/Shanghai**
+ * —— 页面是 SSG，这段代码在 Vercel(UTC) 的构建期跑一次就把字符串写死进 HTML；
+ * 用本地时区会让所有人看到 UTC 时间（实测差 8 小时，线上曾显示 09-19 01:44）。
+ * 正常情况下直接用 data/now.json 里由生成器（本机 +08:00）预格式化好的 updatedAtLabel。
+ */
 function formatUpdated(iso) {
   if (!iso) return ''
   const d = new Date(iso)
   if (Number.isNaN(d.getTime())) return ''
-  return `${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+  try {
+    const parts = new Intl.DateTimeFormat('zh-CN', {
+      timeZone: 'Asia/Shanghai',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    }).formatToParts(d)
+    const get = t => parts.find(p => p.type === t)?.value ?? ''
+    return `${get('month')}-${get('day')} ${get('hour')}:${get('minute')}`
+  } catch {
+    const shifted = new Date(d.getTime() + 8 * 3600 * 1000)
+    return `${pad(shifted.getUTCMonth() + 1)}-${pad(shifted.getUTCDate())} ${pad(
+      shifted.getUTCHours()
+    )}:${pad(shifted.getUTCMinutes())}`
+  }
 }
 
 /** 2026-09-18 → "09-18" */
@@ -62,7 +83,7 @@ const NowCard = () => {
             title='数据更新时间'
             className='shrink-0 text-[10.5px] tabular-nums text-gray-400 dark:text-gray-500'
           >
-            {formatUpdated(nowData.updatedAt)}
+            {nowData.updatedAtLabel || formatUpdated(nowData.updatedAt)}
           </span>
         </div>
 
