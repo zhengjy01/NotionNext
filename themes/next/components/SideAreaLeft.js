@@ -7,7 +7,6 @@ import Card from './Card'
 import InfoCard from './InfoCard'
 import Logo from './Logo'
 import { MenuList } from './MenuList'
-import NowCard from './NowCard'
 import SearchInput from './SearchInput'
 import SocialCard from './SocialCard'
 import Toc from './Toc'
@@ -22,7 +21,7 @@ import Toc from './Toc'
  * @constructor
  */
 const SideAreaLeft = props => {
-  const { post, slot, postCount, now } = props
+  const { post, slot, postCount } = props
   const { locale } = useGlobal()
   const showToc = post && post.toc && post.toc.length > 1
   return (
@@ -84,9 +83,6 @@ const SideAreaLeft = props => {
             </div>
           </Tabs>
         </Card>
-
-        {/* 最近在做什么：数据来自 Notion（type=Now），由本机脚本写入、ISR 自动重取 */}
-        <NowCard now={now} />
 
         {/* 社交联系方式：独立卡片展示，更醒目 */}
         <SocialCard {...props} />

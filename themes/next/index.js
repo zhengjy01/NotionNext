@@ -22,6 +22,7 @@ import Footer from './components/Footer'
 import JumpToBottomButton from './components/JumpToBottomButton'
 import JumpToTopButton from './components/JumpToTopButton'
 import SideAreaLeft from './components/SideAreaLeft'
+import NowCard from './components/NowCard'
 import SideAreaRight from './components/SideAreaRight'
 import StickyBar from './components/StickyBar'
 import TagItem from './components/TagItem'
@@ -183,9 +184,12 @@ const LayoutBase = props => {
  * @returns
  */
 const LayoutIndex = props => {
-  const { notice } = props
+  const { notice, now } = props
   return (
     <>
+      {/* 最近在做什么：首页中间内容栏置顶（数据来自 Notion 的 type=Now 页面，60s ISR 自动重取） */}
+      <NowCard now={now} />
+
       {/* 首页移动端顶部显示公告 */}
       <Card className='my-2 lg:hidden'>
         <Announcement post={notice} />
