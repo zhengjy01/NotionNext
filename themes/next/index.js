@@ -2,6 +2,7 @@ import replaceSearchResult from '@/components/Mark'
 import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
+import { groupPortfolioByCategory } from '@/lib/utils/portfolio'
 import dynamic from 'next/dynamic'
 import SmartLink from '@/components/SmartLink'
 import { useRouter } from 'next/router'
@@ -15,6 +16,7 @@ import BlogPostListPage from './components/BlogPostListPage'
 import BlogPostListScroll from './components/BlogPostListScroll'
 import Card from './components/Card'
 import PortfolioCard from './components/PortfolioCard'
+import PortfolioCategory from './components/PortfolioCategory'
 import FloatDarkModeButton from './components/FloatDarkModeButton'
 import Footer from './components/Footer'
 import JumpToBottomButton from './components/JumpToBottomButton'
@@ -321,12 +323,35 @@ const LayoutArchive = props => {
 
 /**
  * 作品集
+ * 按 Notion 的 category 字段分组，点分类标题展开该分类下的作品
  * @param {*} props
  * @returns
  */
 const LayoutPortfolio = props => {
   const { portfolio } = props
+  const { locale } = useGlobal()
   const items = Array.isArray(portfolio) ? portfolio : []
+
+  const unclassified = siteConfig(
+    'PORTFOLIO_CATEGORY_UNCLASSIFIED',
+    '其他',
+    props?.NOTION_CONFIG
+  )
+  const groups = groupPortfolioByCategory(items, {
+    order: siteConfig('PORTFOLIO_CATEGORY_ORDER', [], props?.NOTION_CONFIG),
+    unclassified
+  })
+  // 全部作品都还没分类时，分类没有意义，退回原来的平铺网格
+  const grouped =
+    groups.length > 1 || (groups.length === 1 && groups[0].name !== unclassified)
+  // 分类初始展开状态：first（只开第一个）/ all（全开）/ none（全关）
+  const initialOpen = siteConfig(
+    'PORTFOLIO_CATEGORY_INITIAL',
+    'first',
+    props?.NOTION_CONFIG
+  )
+  const isOpenInitially = index =>
+    groups.length === 1 || initialOpen === 'all' || (initialOpen === 'first' && index === 0)
 
   return (
     <>
@@ -334,18 +359,32 @@ const LayoutPortfolio = props => {
         <div className='mb-8 text-center'>
           <h2 className='mb-2 text-2xl font-bold text-gray-800 dark:text-gray-100'>
             <i className='fas fa-briefcase mr-3 text-brand-600 dark:text-brand-400' />
-            作品集
+            {locale?.NAV?.PORTFOLIO || '作品集'}
           </h2>
           <p className='text-sm text-gray-500 dark:text-gray-400'>
-            我的精选作品，点击卡片访问
+            {grouped
+              ? `我的精选作品，共 ${items.length} 件 · 点击分类展开`
+              : '我的精选作品，点击卡片访问'}
           </p>
         </div>
         {items.length > 0 ? (
-          <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-            {items.map(item => (
-              <PortfolioCard key={item.id || item.title} item={item} />
-            ))}
-          </div>
+          grouped ? (
+            <div className='md:px-2'>
+              {groups.map((group, index) => (
+                <PortfolioCategory
+                  key={group.key}
+                  group={group}
+                  defaultOpen={isOpenInitially(index)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+              {items.map(item => (
+                <PortfolioCard key={item.id || item.title} item={item} />
+              ))}
+            </div>
+          )
         ) : (
           <div className='py-20 text-center text-gray-400 dark:text-gray-500'>
             <i className='fas fa-inbox mb-4 block text-4xl' />

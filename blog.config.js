@@ -56,6 +56,18 @@ const BLOG = {
   // 自定义菜单
   CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true, // 支持Menu类型的菜单，替代了3.12版本前的Page类型
 
+  // 作品集分类（数据源 = Notion 记录的 category 字段，在 Notion 里改分类即可，无需改代码）
+  PORTFOLIO_CATEGORY_ORDER: [
+    'DSH 插件',
+    '小程序',
+    '浏览器插件',
+    'APP',
+    '网站',
+    'AI 技能'
+  ], // 分类的展示顺序；未列出的分类自动排在后面（按作品数从多到少）
+  PORTFOLIO_CATEGORY_UNCLASSIFIED: '其他', // 没填 category 的作品归入该分组
+  PORTFOLIO_CATEGORY_INITIAL: 'first', // 分类初始展开状态：'first' 只展开第一个分类 / 'all' 全部展开 / 'none' 全部折叠
+
   // 文章列表相关设置
   CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true, // 是否允许复制页面内容 默认允许，如果设置为false、则全栈禁止复制内容。
 
