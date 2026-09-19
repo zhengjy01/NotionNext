@@ -27,7 +27,7 @@ const CONFIG = {
   NEXT_RIGHT_AD: false, // 右侧广告
 
   // 左侧组件
-  NEXT_LEFT_NOW: true, // 左侧栏「最近在做什么」卡片（数据源 data/now.json，由 ~/dsh-blog-sync/build_now.mjs 生成）
+  NEXT_LEFT_NOW: true, // 左侧栏「最近在做什么」卡片（数据源 = Notion 的 type=Now 页面，由 ~/dsh-blog-sync/sync_now.mjs 写入，ISR 自动生效）
 
   // 菜单
   NEXT_MENU_HOME: true, // 显示首页

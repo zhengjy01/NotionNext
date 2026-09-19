@@ -2,17 +2,19 @@ import SmartLink from '@/components/SmartLink'
 import { siteConfig } from '@/lib/config'
 import CONFIG from '../config'
 import Card from './Card'
-import nowData from '@/data/now.json'
 
 /**
  * 「最近在做什么」卡片（左侧栏）
  *
- * 数据来自仓库里的 data/now.json —— 由本机脚本 ~/dsh-blog-sync/build_now.mjs 聚合生成：
- *   滴答清单「In progress」→ doing[]；Notion 库最新 Post / Portfolio → recent[]；
- *   Obsidian 日报「今日主线」→ status。
- * 脚本 push 到 main 后 Vercel 自动重建，卡片随构建一起静态渲染（无客户端请求、无水合闪烁）。
+ * 数据**全部来自 Notion**（`type=Now / status=Published` 的那条页面），经
+ * `lib/db/SiteDataApi.js` 的 `getNowData()` 解析后作为 `now` prop 传进来：
+ *   - status  ← 页面 title（可直接在 Notion 里改）
+ *   - doing[] / recent[] ← summary 属性里的 JSON
  *
- * 字段：{ updatedAt, status, doing: [{title}], recent: [{kind,title,date,href}] }
+ * 因为页面走 60s ISR 重新验证，本机脚本 `~/dsh-blog-sync/sync_now.mjs` 写完 Notion
+ * **最多一分钟就生效，不需要提交 git、也不需要重新部署**。
+ *
+ * 结构：{ status, doing:[{title}], recent:[{kind,title,date,href}], updatedAtLabel }
  */
 
 const pad = n => String(n).padStart(2, '0')
@@ -21,7 +23,7 @@ const pad = n => String(n).padStart(2, '0')
  * 兜底格式化：**必须显式锁 Asia/Shanghai**
  * —— 页面是 SSG，这段代码在 Vercel(UTC) 的构建期跑一次就把字符串写死进 HTML；
  * 用本地时区会让所有人看到 UTC 时间（实测差 8 小时，线上曾显示 09-19 01:44）。
- * 正常情况下直接用 data/now.json 里由生成器（本机 +08:00）预格式化好的 updatedAtLabel。
+ * 正常情况下直接用 Notion 里由本机脚本（+08:00）预格式化好的 updatedAtLabel。
  */
 function formatUpdated(iso) {
   if (!iso) return ''
@@ -63,12 +65,12 @@ const SectionLabel = ({ children, first }) => (
   </div>
 )
 
-const NowCard = () => {
+const NowCard = ({ now }) => {
   if (!siteConfig('NEXT_LEFT_NOW', true, CONFIG)) return null
 
-  const doing = nowData?.doing ?? []
-  const recent = nowData?.recent ?? []
-  if (!nowData?.status && doing.length === 0 && recent.length === 0) return null
+  const doing = now?.doing ?? []
+  const recent = now?.recent ?? []
+  if (!now?.status && doing.length === 0 && recent.length === 0) return null
 
   return (
     <Card className='mb-2'>
@@ -83,14 +85,14 @@ const NowCard = () => {
             title='数据更新时间'
             className='shrink-0 text-[10.5px] tabular-nums text-gray-400 dark:text-gray-500'
           >
-            {nowData.updatedAtLabel || formatUpdated(nowData.updatedAt)}
+            {now.updatedAtLabel || formatUpdated(now.updatedAt)}
           </span>
         </div>
 
         {/* 状态句 */}
-        {nowData.status && (
+        {now.status && (
           <p className='pb-3 text-[13px] leading-[1.7] text-gray-600 dark:text-gray-300'>
-            {nowData.status}
+            {now.status}
           </p>
         )}
 

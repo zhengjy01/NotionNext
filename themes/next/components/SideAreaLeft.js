@@ -22,7 +22,7 @@ import Toc from './Toc'
  * @constructor
  */
 const SideAreaLeft = props => {
-  const { post, slot, postCount } = props
+  const { post, slot, postCount, now } = props
   const { locale } = useGlobal()
   const showToc = post && post.toc && post.toc.length > 1
   return (
@@ -85,8 +85,8 @@ const SideAreaLeft = props => {
           </Tabs>
         </Card>
 
-        {/* 最近在做什么：由本机脚本生成的 data/now.json 驱动 */}
-        <NowCard />
+        {/* 最近在做什么：数据来自 Notion（type=Now），由本机脚本写入、ISR 自动重取 */}
+        <NowCard now={now} />
 
         {/* 社交联系方式：独立卡片展示，更醒目 */}
         <SocialCard {...props} />
