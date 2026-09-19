@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-19T01:44:54.232Z",
+  "status": "dsh-updater 聚合平台收录最后一环收口",
+  "doing": [
+    {
+      "title": "任务派发器：重启后确认延迟同步面板可配置并生效"
+    },
+    {
+      "title": "dsh-restart：重启主实例让旧标签页自愈与 401 引导生效"
+    },
+    {
+      "title": "dsh-wechat-clawbot：同步聚合平台并做次日快照验收"
+    }
+  ],
+  "recent": [
+    {
+      "kind": "post",
+      "title": "把一件事做到细分里的顶尖，也是一种活法",
+      "date": "2026-09-18",
+      "href": "/Messy/3e01d09e0449817c8f67e61a1d67c248"
+    },
+    {
+      "kind": "post",
+      "title": "工具的第一用户，是你自己",
+      "date": "2026-09-17",
+      "href": "/Messy/3e01d09e0449818b9c9aea458d7e1cd3"
+    },
+    {
+      "kind": "project",
+      "title": "dsh-updater",
+      "date": "2026-09-13",
+      "href": "https://github.com/zhengjy01/dsh-updater"
+    }
+  ],
+  "stats": {
+    "posts": 55,
+    "projects": 21
+  }
+}

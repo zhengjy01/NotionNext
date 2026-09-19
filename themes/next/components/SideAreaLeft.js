@@ -7,6 +7,7 @@ import Card from './Card'
 import InfoCard from './InfoCard'
 import Logo from './Logo'
 import { MenuList } from './MenuList'
+import NowCard from './NowCard'
 import SearchInput from './SearchInput'
 import SocialCard from './SocialCard'
 import Toc from './Toc'
@@ -47,7 +48,8 @@ const SideAreaLeft = props => {
         </section>
       </section>
 
-      <div className='sticky top-4 hidden lg:block'>
+      {/* 侧栏整体可能高于视口（关于+联系方式+最近在做什么），超出时内部可滚动，避免底部被 sticky 永久裁掉 */}
+      <div className='sidebar-scroll sticky top-4 hidden max-h-[calc(100vh-2rem)] overflow-y-auto lg:block'>
         <Card>
           <Tabs className='!mb-1'>
             {showToc && (
@@ -82,6 +84,9 @@ const SideAreaLeft = props => {
             </div>
           </Tabs>
         </Card>
+
+        {/* 最近在做什么：由本机脚本生成的 data/now.json 驱动 */}
+        <NowCard />
 
         {/* 社交联系方式：独立卡片展示，更醒目 */}
         <SocialCard {...props} />
