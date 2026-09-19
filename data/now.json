@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-19T01:44:54.232Z",
+  "updatedAt": "2026-09-19T01:56:29.376Z",
   "status": "dsh-updater 聚合平台收录最后一环收口",
   "doing": [
     {
@@ -10,7 +10,7 @@
       "title": "dsh-restart：重启主实例让旧标签页自愈与 401 引导生效"
     },
     {
-      "title": "dsh-wechat-clawbot：同步聚合平台并做次日快照验收"
+      "title": "重启 DSH 让 dsh-backup-migrator 0.4.1 生效（用户内容层 + git 重试）"
     }
   ],
   "recent": [
