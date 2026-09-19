@@ -27,7 +27,8 @@ const CONFIG = {
   NEXT_RIGHT_AD: false, // 右侧广告
 
   // 首页置顶
-  NEXT_HOME_NOW: true, // 首页中间内容栏置顶的「最近在做什么」卡片（数据源 = Notion 的 type=Now 页面，由 ~/dsh-blog-sync/sync_now.mjs 写入，ISR 自动生效）
+  NEXT_HOME_NOW: true, // 首页中间内容栏置顶的「最近在做什么」卡片（数据源 = Notion 的 type=Now 页面，由 ~/dsh-blog-sync/sync_now.mjs 写入，60s ISR 自动生效）
+  NEXT_LEFT_CONTACT_OPEN: false, // 左侧栏「联系方式」卡片初始是否展开（点标题可折叠/展开，用户选择记在浏览器本地；默认收起）
 
   // 菜单
   NEXT_MENU_HOME: true, // 显示首页
