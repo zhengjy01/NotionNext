@@ -116,10 +116,12 @@ function resolveSource(item) {
 /** 来源小图标（纯装饰性尺寸，来源名由内部 `<title>` 提供原生提示） */
 const SourceIcon = ({ item }) => {
   const meta = SOURCE_META[resolveSource(item)]
+  // 来源图标是**分类信息**（要让访客能分辨），比右侧外链箭头（纯提示）略强一档：
+  // 实测 opacity-25 太淡、四个形状分不出来
   return (
     <svg
       viewBox='0 0 24 24'
-      className='mt-[5px] h-3 w-3 shrink-0 stroke-current opacity-25 transition-opacity group-hover:opacity-60'
+      className='mt-[5px] h-3 w-3 shrink-0 stroke-current opacity-45 transition-opacity group-hover:opacity-80'
       fill='none'
       strokeWidth='2'
       strokeLinecap='round'
