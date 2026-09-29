@@ -1,89 +1,67 @@
-# 帮助教程
+# 郑俊耀的博客 · zhengjy.site
 
-访问帮助：[NotionNext帮助手册](https://docs.tangly1024.com/)
+个人博客站点的源代码。线上地址：**https://www.zhengjy.site**
 
-> 本项目教程为免费、公开资源，仅限个人学习使用，禁止利用本教程建立的博客发布非法内容、进行违法犯罪活动。严禁任何个人或组织将本教程用于商业用途，包括但不限于直接售卖、间接收费、或其他变相盈利行为。转载、复制或介绍本教程内容时，须保留作者信息并明确注明来源。
-> 本项目仅提供由作者团队授权的付费咨询服务，请注意辨别，谨防诈骗行为。任何未经授权的收费服务均可能存在法律风险。
+本仓库由 [NotionNext](https://github.com/notionnext-org/NotionNext) v4.9.5 派生而来，
+是**我个人独立维护的版本**：不跟随上游更新，改动按自己的需要来，不追求与上游兼容。
 
-Notion是一个能让效率暴涨的生产力引擎，可以帮你书写文档、管理笔记，搭建知识库，甚至可以为你规划项目、时间管理、组织团队、提高生产力、还有当前最强大的AI技术加持。
+## 技术栈
 
-> 若希望进一步探索Notion的功能，欢迎购买《[Notion笔记从入门到精通进阶课程](https://docs.tangly1024.com/article/notion-tutorial)》
+- **框架**：Next.js 14（Pages Router）
+- **内容源**：Notion（页面数据经 Notion API 读取，改内容不用动代码）
+- **样式**：Tailwind CSS
+- **渲染**：react-notion-x
+- **部署**：Vercel（push 到 `main` 自动构建发布）
+- **当前主题**：`next`
 
-> 若希望获得稳定、高速、不限设备数量的VPN科学上网服务，欢迎使用[飞鸟VPN](https://fbinv02.fbaff.cc/auth/register?code=kaA7t4kh)，这是我目前在用的VPN，仅作友情推广
+## 相对上游做过的主要定制
 
-# NotionNext
+- 全站设计改版：品牌色（墨蓝 `#3E5C9A`）、衬线标题搭配无衬线正文、去装饰降噪
+- 左侧栏「联系方式」卡片支持折叠（默认收起、记住选择）
+- 首页中部新增「近况」卡片，数据源为 Notion 中 `type=Now` 的页面（更新内容无需重新部署）
+- 作品集（Portfolio）按 Notion 分类折叠展示
+- 左栏新增「随机阅读」入口
+- 页脚邮件订阅（Mailchimp）
+- 文章列表关闭内联预览、显示摘要；移除文章卡片底部的「文章详情」按钮
+- 移除页脚 Powered by 版权行
+- 全仓 Prettier 格式化基线
 
-<p>
-  <a aria-label="GitHub commit activity" href="https://github.com/tangly1024/NotionNext/commits/main" title="GitHub commit activity">
-    <img src="https://img.shields.io/github/commit-activity/m/tangly1024/NotionNext?style=for-the-badge"/>
-  </a>
-  <a aria-label="GitHub contributors" href="https://github.com/tangly1024/NotionNext/graphs/contributors" title="GitHub contributors">
-    <img src="https://img.shields.io/github/contributors/tangly1024/NotionNext?color=orange&style=for-the-badge"/>
-  </a>
-  <a aria-label="Build status" href="#" title="Build status">
-    <img src="https://img.shields.io/github/deployments/tangly1024/NotionNext/Production?logo=Vercel&style=for-the-badge"/>
-  </a>
-  <a aria-label="Powered by Vercel" href="https://vercel.com?utm_source=Craigary&utm_campaign=oss" title="Powered by Vercel">
-    <img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" height="28"/>
-  </a>
-</p>
+## 本地开发
 
-中文文档 | [README in English](./README_EN.md)
+```bash
+yarn install
+yarn dev          # http://localhost:3000
+yarn build        # 生产构建
+yarn lint         # ESLint
+yarn type-check   # TypeScript 类型检查
+yarn format       # Prettier 格式化
+```
 
-<hr/>
+站点配置集中在 [`blog.config.js`](blog.config.js) 与 [`conf/`](conf/)：
+站点名称、作者、`LINK`（站点地址）、导航菜单、联系方式、统计分析、评论开关等。
 
-一个使用 NextJS + Notion API 实现的，部署在 Vercel 上的静态博客系统。为Notion和所有创作者设计。
+Notion 相关配置走环境变量——本地写在 `.env.local`，线上配在 Vercel 的项目环境变量里：
 
-支持多种部署方案
+| 变量                           | 说明                              |
+| ------------------------------ | --------------------------------- |
+| `NOTION_PAGE_ID`               | 博客根页面 ID（必填）             |
+| `NEXT_PUBLIC_MAILCHIMP_ENABLED` | 邮件订阅开关                     |
+| `MAILCHIMP_API_KEY`            | Mailchimp API Key                 |
+| `MAILCHIMP_LIST_ID`            | Mailchimp 受众列表 ID             |
 
-## 开发者文档导航
+> 完整变量清单可参考上游文档：https://docs.tangly1024.com/
 
-为方便新贡献者快速上手，项目已补充文档导航与协作规范：
+## 部署
 
-- [文档导航入口（中文）](./docs/README.md)
-- [Docs Navigation (English)](./docs/README.en.md)
-- [主题迁移指南（中文）](./docs/THEME_MIGRATION_GUIDE.zh-CN.md)
-- [Theme Migration Guide (English)](./docs/THEME_MIGRATION_GUIDE.md)
-- [贡献入口（英文）](./CONTRIBUTING.md)
+推送到 `origin/main` 即触发 Vercel 生产部署。
 
-## 预览效果
+仓库内原有的 `Upstream Sync` 工作流已移除——本仓库不跟随上游更新。
 
-在线演示：[https://preview.tangly1024.com/](https://preview.tangly1024.com/) ，点击左下角挂件可以切换主题，没找到喜欢的主题？[贡献](/CONTRIBUTING.md)一个吧~
+## 许可与致谢
 
-| Next                                                                                                  | Medium                                                                                                      | Hexo                                                                                                  | Fukasawa                                                                                                          |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| <img src='./docs/theme-next.png' width='300'/> [预览NEXT](https://preview.tangly1024.com/?theme=next) | <img src='./docs/theme-medium.png' width='300'/> [预览MEDIUM](https://preview.tangly1024.com/?theme=medium) | <img src='./docs/theme-hexo.png' width='300'/> [预览HEXO](https://preview.tangly1024.com/?theme=hexo) | <img src='./docs/theme-fukasawa.png' width='300'/> [预览FUKASAWA](https://preview.tangly1024.com/?theme=fukasawa) |
+本项目按 MIT 许可发布，见 [LICENSE](LICENSE)。
 
-## 致谢
+- 上游项目：[NotionNext](https://github.com/notionnext-org/NotionNext)（原作者 tangly1024）
+- 更早的源头：[Nobelium](https://github.com/craigary/nobelium)（Craig Hart）
 
-感谢Craig Hart发起的Nobelium项目
-
-<table><tr align="left">
-  <td align="center"><a href="https://github.com/craigary" title="Craig Hart"><img src="https://avatars.githubusercontent.com/u/10571717" width="64px;"alt="Craig Hart"/></a><br/><a href="https://github.com/craigary" title="Craig Hart">Craig Hart</a></td>
-</tr></table>
-
-## 贡献者
-
-致敬每一位开发者！
-
-[![Contributors](https://contrib.rocks/image?repo=tangly1024/NotionNext)](https://github.com/tangly1024/NotionNext/graphs/contributors)
-
-## 引用技术
-
-- **框架**: [Next.js](https://nextjs.org)
-- **样式**: [Tailwind CSS](https://www.tailwindcss.cn/)
-- **渲染**: [React-notion-x](https://github.com/NotionX/react-notion-x)
-- **评论**: [Twikoo](https://github.com/imaegoo/twikoo), [Giscus](https://giscus.app/zh-CN), [Gitalk](https://gitalk.github.io), [Cusdis](https://cusdis.com), [Utterances](https://utteranc.es)
-- **图标**: [Fontawesome](https://fontawesome.com/v6/icons/)
-
-## 🔗 友情链接
-
-- [Elog](https://github.com/LetTTGACO/elog) Markdown 批量导出工具、开放式跨平台博客解决方案，随意组合写作平台(语雀/Notion/FlowUs/飞书)和博客平台(Hexo/Vitepress/Halo/Confluence/WordPress等)
-
-## License
-
-The MIT License.
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=tangly1024/NotionNext&type=Date)](https://star-history.com/#tangly1024/NotionNext&Date)
+按 MIT 许可要求，原项目的版权声明与许可条款完整保留在 `LICENSE` 中。

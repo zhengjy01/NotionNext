@@ -1,19 +1,19 @@
 {
-  "name": "notion-next",
+  "name": "zhengjy-blog",
   "version": "4.9.5.0",
-  "homepage": "https://github.com/tangly1024/NotionNext.git",
+  "homepage": "https://www.zhengjy.site",
   "license": "MIT",
   "engines": {
     "node": ">=20"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tangly1024/NotionNext.git"
+    "url": "https://github.com/zhengjy01/NotionNext.git"
   },
   "author": {
-    "name": "tangly",
-    "email": "mail@tangly1024.com",
-    "url": "http://tangly1024.com"
+    "name": "Jun Zheng",
+    "email": "306360614+zhengjy01@users.noreply.github.com",
+    "url": "https://github.com/zhengjy01"
   },
   "scripts": {
     "dev": "next dev",
@@ -111,7 +111,6 @@
     "form-data": "^4.0.4"
   },
   "bugs": {
-    "url": "https://github.com/tangly/NotionNext/issues",
-    "email": "tlyong1992@hotmail.com"
+    "url": "https://github.com/zhengjy01/NotionNext/issues"
   }
 }
